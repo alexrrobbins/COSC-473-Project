@@ -15,6 +15,7 @@ class User():
 
     def change_password(self, new_password):
         self.password = new_password
+        db.change_password_in_db(self)
 
     def add_to_db(self):
         db.add_user_to_db(self)
