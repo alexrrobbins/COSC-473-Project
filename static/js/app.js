@@ -12,8 +12,7 @@ function get_sign_up_info() {
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify(sign_up_info),
-    dataType: 'json',
-    url: "/welcome",
+    url: "/register",
     success: function(e) {
       console.log(e);
       window.location = "/welcome";
