@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
     <div>
-      <p>Welcome</p> <br>
+      <p>Welcome {{username}}</p> <br>
+      <p>Your email is {{email}}</p>
       <button type="button" id="logout-button", onclick="user_logout()">Logout</button>
     </div>
 {% endblock %}

@@ -15,7 +15,10 @@ def signup():
 
 @app.route('/welcome')
 def welcome():
-    return render_template("welcome.html")
+    username = session['username']
+    email = session['email']
+    return render_template("welcome.html",
+        username=username, email=email)
 
 @app.route('/login')
 def login():
