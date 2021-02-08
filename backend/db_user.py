@@ -15,3 +15,6 @@ class db():
     def change_password_in_db(user):
         #change the password in db
         return True
+
+    def get_username(user):
+        pass

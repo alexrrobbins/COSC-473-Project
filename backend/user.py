@@ -8,20 +8,19 @@ from backend.db_user import db
 
 class User():
 
-    def __init__(self, email, password, username):
+    def __init__(self, email, password, username='null'):
         self.email = email
         self.password = password
         self.username = username
-
-    def __init__(self, email, password):
-        self.email = email
-        self.password = password
 
     def get_username(self):
         return self.username
 
     def get_email(self):
         return self.email
+
+    def set_username(self):
+        self.username = db.get_username(self)
 
 # These functions return true or false based on whether the db actions were successful
     def change_password(self, new_password):

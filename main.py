@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request, redirect, Response, jsonify
+from flask import Flask, render_template, request, redirect, Response, jsonify, session
+import secrets
 from backend.user import User
 app = Flask(__name__)
+app.secret_key = secrets.token_bytes()
 
 #######Render Template Paths (View)##############
 @app.route('/')
@@ -27,8 +29,12 @@ def register():
     password = user_json['password']
     username = user_json['username']
     new_user = User(email, password, username)
-    new_user.add_to_db()
-    return '200 OK'
+    if new_user.add_to_db():
+        session['email'] = new_user.get_email()
+        session['username'] = new_user.get_username()
+        return '200 OK'
+    else:
+        return redirect(url_for('signup'))
 
 @app.route('/login_verify',methods=['GET','POST'])
 def login_verify():
@@ -36,7 +42,20 @@ def login_verify():
     email = user_json['email']
     password = user_json['password']
     new_user = User(email, password)
-    new_user.verify_credentials()
+    if new_user.verify_credentials():
+        session['email'] = new_user.get_email()
+        new_user.set_username()
+        session['username'] = new_user.get_username()
+        return '200 OK'
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/user_logout',methods=['GET','POST'])
+def uder_logout():
+    if 'username' in session:
+        session.pop('username')
+    if 'email' in session:
+        session.pop('email')
     return '200 OK'
 
 app.run(debug=True)

@@ -52,6 +52,20 @@ function get_login_info() {
   });
 }
 
+function user_logout() {
+  $.ajax({
+    type: 'POST',
+    url: "/user_logout",
+    success: function(e) {
+      console.log(e);
+      window.location = "/";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {
