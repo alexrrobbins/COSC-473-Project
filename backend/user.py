@@ -1,4 +1,4 @@
-from backend.db_sign_up import db
+from backend.db_user import db
 
 class User():
 
@@ -6,6 +6,10 @@ class User():
         self.email = email
         self.password = password
         self.username = username
+
+    def __init__(self, email, password):
+        self.email = email
+        self.password = password
 
     def get_username(self):
         return self.username
@@ -19,3 +23,6 @@ class User():
 
     def add_to_db(self):
         db.add_user_to_db(self)
+
+    def verify_credentials(self):
+        db.verify_credentials(self)
