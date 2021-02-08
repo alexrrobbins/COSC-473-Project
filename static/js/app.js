@@ -1,12 +1,21 @@
+/////Render Template Functions/////
+function display_signup_page() {
+  window.location = "/signup";
+}
+
+function display_login_page() {
+  window.location = "/login";
+}
+
+//////Logical functioms//////
 //Function to get sign-up information from the sign-up page
 function get_sign_up_info() {
   // Get values and establish JSON
   var email = $("#inputEmail").val();
-  console.log(email)
   var password = $("#inputPassword").val();
   var username = $("#inputUsername").val();
-  var hashed_password = stringToHash(password)
-  var sign_up_info = {email: email, password: hashed_password, username: username}
+  var hashed_password = stringToHash(password);
+  var sign_up_info = {email: email, password: hashed_password, username: username};
   // Pass values to controller
   $.ajax({
     type: 'POST',

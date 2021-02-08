@@ -2,10 +2,24 @@ from flask import Flask, render_template, request, redirect, Response, jsonify
 from backend.user import User
 app = Flask(__name__)
 
+#######Render Template Paths##############
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/signup')
+def signup():
+    return render_template('sign-up.html')
+
+@app.route('/welcome')
+def welcome():
+    return render_template("welcome.html")
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+#########Logical paths##############
 @app.route('/register',methods=['GET','POST'])
 def register():
     user_json = request.get_json()
@@ -15,9 +29,5 @@ def register():
     new_user = User(email, password, username)
     new_user.add_to_db()
     return '200 OK'
-
-@app.route('/welcome')
-def welcome():
-    return render_template("welcome.html")
 
 app.run(debug=True)

@@ -1,16 +1,5 @@
 {% extends "base.html" %}
 {% block body %}
-  <form class="form-signin">
-  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-  <label for="inputEmail" class="sr-only">Username or Email Address</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Username or Email Address" required="" autofocus="">
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-  <label for="inputPassword" class="sr-only">Username</label>
-  <input type="username" id="inputUsername" class="form-control" placeholder="Username" required="">
-  <button class="btn btn-lg btn-primary btn-block" type="submit" id="login-button" onclick="get_sign_up_info()" href="{{ url_for('welcome') }}">Login</button>
-  <br />
-  <a href="#">Forgot Password?</a>
-  <p class="mt-5 mb-3 text-muted">© 2020</p>
-  </form>
+  <button type="button" id='user-signup' onclick='display_signup_page()'>Sign-Up</button>
+  <<button type="button" id='user-login' onclick='display_login_page()'>Login</button>
 {% endblock %}
