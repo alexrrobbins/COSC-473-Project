@@ -15,13 +15,12 @@ class db():
 
     def add_user_to_db(user):
         # Add user to database
-        print(user.get_username())
-        print(user.get_email())
+
         return True
 
     def verify_credentials(user):
         #verify the user's credentials
-        print(user.get_email())
+
         return True
 
     def change_password_in_db(user):
@@ -29,4 +28,5 @@ class db():
         return True
 
     def get_username(user):
+        #with email address and password, get username
         pass
