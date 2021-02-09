@@ -12,6 +12,7 @@ class User():
         self.email = email
         self.password = password
         self.username = username
+        self.db_to_use = db()
 
     def get_username(self):
         return self.username
