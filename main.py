@@ -37,7 +37,7 @@ def register():
         session['username'] = new_user.get_username()
         return '200 OK'
     else:
-        return redirect(url_for('signup'))
+        return redirect('signup')
 
 @app.route('/login_verify',methods=['GET','POST'])
 def login_verify():
@@ -51,7 +51,7 @@ def login_verify():
         session['username'] = new_user.get_username()
         return '200 OK'
     else:
-        return redirect(url_for('login'))
+        return redirect('login')
 
 @app.route('/user_logout',methods=['GET','POST'])
 def uder_logout():
