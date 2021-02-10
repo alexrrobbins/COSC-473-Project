@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
-  <button type="button" id='user-signup' onclick='display_signup_page()'>Sign-Up</button>
-  <button type="button" id='user-login' onclick='display_login_page()'>Login</button>
+  <div id="splashWrapper" class="center">
+    <h1 id="title">Schedule Sheep</h1>
+    <h3 id="subtitle"><em>Managing your crew shouldn’t have to feel like herding sheep</em></h3>
+    <div class="centerContainer">
+      <button type="button" id='user-signup' class="btn btn-outline-secondary btn-lg" onclick='display_signup_page()'>Sign-Up</button>
+      <button type="button" id='user-login' class="btn btn-outline-secondary btn-lg " onclick='display_login_page()'>Login</button>
+    </div>
+  </div>
 {% endblock %}
