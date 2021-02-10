@@ -25,7 +25,7 @@ class User():
 
 # These functions return true or false based on whether the db actions were successful
     def change_password(self, new_password):
-        pw_change_result = db.change_password_in_db(self)
+        pw_change_result = self.our_db.change_password_in_db(self)
         if pw_change_result:
             self.password = new_password
         return pw_change_result
