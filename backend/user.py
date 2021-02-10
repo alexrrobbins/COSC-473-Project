@@ -12,7 +12,7 @@ class User():
         self.email = email
         self.password = password
         self.username = username
-        self.db_to_use = db()
+        self.our_db = db()
 
     def get_username(self):
         return self.username
@@ -21,7 +21,7 @@ class User():
         return self.email
 
     def set_username(self):
-        self.username = db.get_username(self)
+        self.username = self.our_db.get_username(self)
 
 # These functions return true or false based on whether the db actions were successful
     def change_password(self, new_password):
@@ -31,7 +31,7 @@ class User():
         return pw_change_result
 
     def add_to_db(self):
-        return db.add_user_to_db(self)
+        return self.our_db.add_user_to_db(self)
 
     def verify_credentials(self):
-        return db.verify_credentials(self)
+        return self.our_db.verify_credentials(self)
