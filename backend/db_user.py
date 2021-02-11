@@ -29,8 +29,15 @@ class db():
 
     def verify_credentials(self,user):
         #verify the user's credentials
-
-        return True
+        sql = "SELECT * FROM login WHERE email = %s AND password = %s"
+        values = (user.email,user.password)
+        user_cursor = self.db_connection.cursor()
+        user_cursor.execute(sql,values)
+        result = user_cursor.fetchall()
+        if result:
+            return True
+        else:
+            return False
 
     def change_password_in_db(self,user):
         #change the password in db
