@@ -13,6 +13,8 @@ class db():
         PASSWORD = "9NzI7Gvk1W"
         self.db_connection = mysql.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD)
 
+###########Register and login functions##################
+
     def add_user_to_db(self,user):
         # Add user to database
         sql = "INSERT INTO login (username,password,email) VALUES (%s, %s, %s)"
@@ -29,20 +31,27 @@ class db():
 
     def verify_credentials(self,user):
         #verify the user's credentials
-        sql = "SELECT * FROM login WHERE email = %s AND password = %s"
-        values = (user.email,user.password)
-        user_cursor = self.db_connection.cursor()
-        user_cursor.execute(sql,values)
-        result = user_cursor.fetchall()
+        result = self.get_user_from_db(user)
         if result:
             return True
         else:
             return False
 
+    def get_username(self,user):
+        result = self.get_user_from_db(user)
+        return result[0][0]
+
+    def get_user_from_db(self,user):
+        sql = "SELECT * FROM login WHERE email = %s AND password = %s"
+        values = (user.email,user.password)
+        user_cursor = self.db_connection.cursor()
+        user_cursor.execute(sql,values)
+        result = user_cursor.fetchall()
+        user_cursor.close()
+        return result
+
+#################Other user functions######################
+
     def change_password_in_db(self,user):
         #change the password in db
         return True
-
-    def get_username(self,user):
-        #with email address and password, get username
-        pass
