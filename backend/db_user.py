@@ -41,6 +41,13 @@ class db():
         result = self.get_user_from_db(user)
         return result[0][0]
 
+    def check_admin_status(self,user):
+        result = self.get_user_from_db(user)
+        if result[0][3] == 1:
+            return True
+        else:
+            return False
+
     def get_user_from_db(self,user):
         sql = "SELECT * FROM login WHERE email = %s AND password = %s"
         values = (user.email,user.password)

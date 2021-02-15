@@ -8,10 +8,11 @@ from backend.db_user import db
 
 class User():
 
-    def __init__(self, email, password, username='null'):
+    def __init__(self, email, password, username='null', admin='null'):
         self.email = email
         self.password = password
         self.username = username
+        self.admin = admin
         self.our_db = db()
 
     def get_username(self):
@@ -35,3 +36,6 @@ class User():
 
     def verify_credentials(self):
         return self.our_db.verify_credentials(self)
+
+    def check_admin_status(self):
+        return self.our_db.check_admin_status(self)

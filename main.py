@@ -17,8 +17,12 @@ def signup():
 def welcome():
     username = session['username']
     email = session['email']
-    return render_template("welcome.html",
+    if session['admin_status']:
+        return render_template("admin.html",
         username=username, email=email)
+    else:
+        return render_template("welcome.html",
+            username=username, email=email)
 
 @app.route('/login')
 def login():
@@ -49,6 +53,7 @@ def login_verify():
         session['email'] = new_user.get_email()
         new_user.set_username()
         session['username'] = new_user.get_username()
+        session['admin_status'] = new_user.check_admin_status()
         return '200 OK'
     else:
         return redirect('login')
