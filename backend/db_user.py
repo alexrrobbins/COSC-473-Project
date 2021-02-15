@@ -50,8 +50,20 @@ class db():
         user_cursor.close()
         return result
 
-#################Other user functions######################
-
+###############NOT TESTED##################
     def change_password_in_db(self,user):
         #change the password in db
         return True
+
+    def remove_user_from_db(self,user):
+        sql = "DELETE FROM 'login' WHERE 'login'.'email' = %s"
+        values = (user.email)
+        try:
+            user_cursor = self.db_connection.cursor()
+            user_cursor.execute(sql,values)
+            return True
+        except:
+            return False
+
+    def promote_to_admin(self,user):
+        pass
