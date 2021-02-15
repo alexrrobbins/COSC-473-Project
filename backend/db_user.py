@@ -51,19 +51,26 @@ class db():
         return result
 
 ###############NOT TESTED##################
-    def change_password_in_db(self,user):
-        #change the password in db
-        return True
+    def change_password_in_db(self,user,new_password):
+        sql = "UPDATE `login` SET `password` = %s WHERE `login`.`email` = %s"
+        values = (user.email,new_password)
+        return admin_helper(sql,values)
 
     def remove_user_from_db(self,user):
         sql = "DELETE FROM 'login' WHERE 'login'.'email' = %s"
         values = (user.email)
+        return admin_helper(sql,values)
+
+    def promote_to_admin(self,user):
+        sql = "UPDATE `login` SET `admin` = '1' WHERE `login`.`email` = %s"
+        values = (user.email)
+        return admin_helper(sql,values)
+
+    def admin_helper(self,sql,values):
+        user_cursor = self.db_connection.cursor()
+        user_cursor.execute(sql,values)
         try:
-            user_cursor = self.db_connection.cursor()
-            user_cursor.execute(sql,values)
+            self.db_connection.commit()
             return True
         except:
             return False
-
-    def promote_to_admin(self,user):
-        pass
