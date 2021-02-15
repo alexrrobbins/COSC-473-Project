@@ -1,17 +1,10 @@
-# TODO: Add database code to perform these functions
-
 class db():
 
     def __init__(self):
         import mysql.connector as mysql
-        # REALLY BAD PRACTICES FOR THE THE REAL WORLD RIGHT HERE
-        # I MEAN I ACKNOWLEDGE THAT WE ARE LITERALLY DOING EVERYTHING WRONG HERE
-        # BUT THIS IS FOR EDUCATIONAL PURPOSES ONLY SO IT'S FINE
-        HOST = "sql5.freemysqlhosting.net"
-        DATABASE = "sql5391708"
-        USER = "sql5391708"
-        PASSWORD = "9NzI7Gvk1W"
-        self.db_connection = mysql.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD)
+        from backend.db_connection import db_connection
+        parent_db = db_connection()
+        self.db_connection = mysql.connect(host=parent_db.HOST, database=parent_db.DATABASE, user=parent_db.USER, password=parent_db.PASSWORD)
 
 ###########Register and login functions##################
 
@@ -57,8 +50,20 @@ class db():
         user_cursor.close()
         return result
 
-#################Other user functions######################
-
+###############NOT TESTED##################
     def change_password_in_db(self,user):
         #change the password in db
         return True
+
+    def remove_user_from_db(self,user):
+        sql = "DELETE FROM 'login' WHERE 'login'.'email' = %s"
+        values = (user.email)
+        try:
+            user_cursor = self.db_connection.cursor()
+            user_cursor.execute(sql,values)
+            return True
+        except:
+            return False
+
+    def promote_to_admin(self,user):
+        pass
