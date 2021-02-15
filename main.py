@@ -39,6 +39,7 @@ def register():
     if new_user.add_to_db():
         session['email'] = new_user.get_email()
         session['username'] = new_user.get_username()
+        session['admin_status'] = new_user.check_admin_status()
         return '200 OK'
     else:
         return redirect('signup')
