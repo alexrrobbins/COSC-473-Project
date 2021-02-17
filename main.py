@@ -85,4 +85,5 @@ def promote_user():
     admin.promote_to_admin(target_email)
     return '200 OK'
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
