@@ -61,16 +61,16 @@ class db():
             return False
 
     def change_password_in_db(self,email,new_password):
-        sql = "UPDATE 'login' SET 'password' = %s WHERE 'email' = %s"
+        sql = "UPDATE login SET password = %s WHERE email = %s"
         values = (email,new_password)
         return self.admin_helper(sql,values)
 
     def remove_user_from_db(self,email):
-        sql = "DELETE FROM 'login' WHERE 'email' = %s"
-        values = (email)
+        sql = "DELETE FROM login WHERE email = %s"
+        values = (email,)
         return self.admin_helper(sql,values)
 
     def promote_to_admin(self,email):
-        sql = "UPDATE login SET 'admin' = '1' WHERE 'email' = %s"
-        values = (email)
+        sql = "UPDATE login SET admin = 1 WHERE email = %s"
+        values = (email,)
         return self.admin_helper(sql,values)
