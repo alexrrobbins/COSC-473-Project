@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, Response, jsonify, session
 import secrets
 from backend.user import User
+from backend.admin import Admin
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes()
 
@@ -28,7 +29,7 @@ def welcome():
 def login():
     return render_template("login.html")
 
-#########Logical paths (Model)##############
+#########Logical paths (Model) - User functionality##############
 @app.route('/register',methods=['GET','POST'])
 def register():
     user_json = request.get_json()
@@ -65,6 +66,23 @@ def uder_logout():
         session.pop('username')
     if 'email' in session:
         session.pop('email')
+    return '200 OK'
+
+#########Logical paths (Model) - Admin functionality##############
+@app.route('/remove_user',methods=['GET','POST'])
+def remove_user():
+    admin = Admin(session['email'],'dummy')
+    user_json = request.get_json()
+    target_email = user_json['email']
+    admin.remove_user_from_db(target_email)
+    return '200 OK'
+
+@app.route('/promote_user',methods=['GET','POST'])
+def promote_user():
+    admin = Admin(session['email'],'dummy')
+    user_json = request.get_json()
+    target_email = user_json['email']
+    admin.promote_to_admin(target_email)
     return '200 OK'
 
 app.run(debug=True)

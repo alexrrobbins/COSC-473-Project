@@ -1,4 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
-
+<button type="button" id="logout-button", onclick="user_logout()">Logout</button>
+<label for="useremail" class="sr-only">Email Address</label>
+<input type="email" id="useremail" class="form-control" placeholder="Email Address" required="" autofocus="">
+<button type="button" name="remove_user_button" onclick="remove_user()"">Remove user</button>
+<button type="button" name="promote_user_button" onclick="promote_user()">Promote user</button>
 {% endblock %}

@@ -50,22 +50,7 @@ class db():
         user_cursor.close()
         return result
 
-###############NOT TESTED##################
-    def change_password_in_db(self,user,new_password):
-        sql = "UPDATE `login` SET `password` = %s WHERE `login`.`email` = %s"
-        values = (user.email,new_password)
-        return admin_helper(sql,values)
-
-    def remove_user_from_db(self,user):
-        sql = "DELETE FROM 'login' WHERE 'login'.'email' = %s"
-        values = (user.email)
-        return admin_helper(sql,values)
-
-    def promote_to_admin(self,user):
-        sql = "UPDATE `login` SET `admin` = '1' WHERE `login`.`email` = %s"
-        values = (user.email)
-        return admin_helper(sql,values)
-
+###############Admin functionality - NOT TESTED##################
     def admin_helper(self,sql,values):
         user_cursor = self.db_connection.cursor()
         user_cursor.execute(sql,values)
@@ -74,3 +59,18 @@ class db():
             return True
         except:
             return False
+
+    def change_password_in_db(self,email,new_password):
+        sql = "UPDATE 'login' SET 'password' = %s WHERE 'email' = %s"
+        values = (email,new_password)
+        return self.admin_helper(sql,values)
+
+    def remove_user_from_db(self,email):
+        sql = "DELETE FROM 'login' WHERE 'email' = %s"
+        values = (email)
+        return self.admin_helper(sql,values)
+
+    def promote_to_admin(self,email):
+        sql = "UPDATE login SET 'admin' = '1' WHERE 'email' = %s"
+        values = (email)
+        return self.admin_helper(sql,values)

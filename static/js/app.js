@@ -19,16 +19,14 @@ function check_for_bad_registration() {
   }
 }
 
-//////Logical functioms//////
-//Function to get sign-up information from the sign-up page
+//////Logical functioms - user functionality//////
+
 function get_sign_up_info() {
-  // Get values and establish JSON
   var email = $("#inputEmail").val();
   var password = $("#inputPassword").val();
   var username = $("#inputUsername").val();
   var hashed_password = stringToHash(password);
   var sign_up_info = {email: email, password: hashed_password, username: username};
-  // Pass values to controller
   $.ajax({
     type: 'POST',
     contentType: 'application/json',
@@ -71,6 +69,42 @@ function user_logout() {
     success: function(e) {
       console.log(e);
       window.location = "/";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
+//////Logical functioms - admin functionality//////
+function remove_user() {
+  var email = $("#useremail").val();
+  var user_info = {email: email};
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(user_info),
+    url: "/remove_user",
+    success: function(e) {
+      console.log(e);
+      window.location = "/welcome";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+function promote_user() {
+  var email = $("#useremail").val();
+  var user_info = {email: email};
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(user_info),
+    url: "/promote_user",
+    success: function(e) {
+      console.log(e);
+      window.location = "/welcome";
     },
     error: function(error) {
               console.log(error);
