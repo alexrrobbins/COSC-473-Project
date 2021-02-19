@@ -1,21 +1,18 @@
 {% extends "base.html" %}
 {% block body %}
+
+		<h1 class="sheep-header">Schedule Sheep</h1>
+		<br>
+		<h1 class="sheep-header">User Dashboard</h1>
+    <br>
     <div id="splashWrapper" class="center">
       <p>Welcome {{username}}</p> <br>
       <p>Your email is {{email}}</p>
       <button type="button" id="logout-button", onclick="user_logout()">Logout</button>
     </div>
 
-		<h1 class="sheep-header">Schedule Sheep</h1>
-		<p style="text-align:center;">
-				<a href="index.html">Logout</a>
+		<p style="text-align: center">
+				<a href="calandar.html?flag=catalog" style="text-decoration: none"> View Schedule </a>
 		</p>
-		<hr>
-			
-		<h1 class="sheep-header">User Dashboard</h1>	  
-						
-		<p style="text-align: center"> 
-				<a href="calandar.html?flag=catalog" style="text-decoration: none"> View Schedule </a> 
-		</p>	
-				
+
 {% endblock %}
