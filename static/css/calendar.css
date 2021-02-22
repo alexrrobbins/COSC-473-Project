@@ -1,15 +1,23 @@
+/* Calendar CSS File. Accent Colors: 
+	Pink: #C38d9E
+	Gray: #1b1b1b
+	Blue: #85BADC
+	Lighter Blue: #85dcd3
+	Darker Blue: #858fdc
+	Red: #E27D60
+	*/
 .calendar
 {
     background-color: white;
     padding: 20px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+    box-shadow: 0px 5px 10px #000000;
 }
 
 .calendar .dropdown
 {
     display: none;
     position: absolute;
-    background-color: #fff;
+    background-color: #1b1b1b;
     color: #1caff6;
     text-align: center;
     font-size: 14pt;
@@ -48,8 +56,8 @@
 .calendar .calendar-btn
 {
     float: left;
-    background-color: #24aeff;
-    color: white;
+    background-color: #85dcd3;
+    color: #1b1b1b;
     text-align: center;
     font-size: 14pt;
     padding-top: 5px;
@@ -61,7 +69,7 @@
 }
 
 .calendar .calendar-btn:hover{
-    background-color:#1f71a1;
+    background-color:#85dcd3;
 }
 
 .calendar .year-btn
@@ -79,18 +87,19 @@
     text-align:center;
     border-radius: 10px;
     border: solid 1px #ddd;
+    color: white;
 }
 
 .calendar .calendar-dates .days .day.blank
 {
-    background-color: white;
+    background-color: #1b1b1b;
     border:none;
 }
 
 .calendar .calendar-dates .days .day.selected
 {
     background-color: #1caff6;
-    color: white;
+    color: #1b1b1b;
     cursor:pointer;
     opacity: .5;
     transition: .5s opacity;
@@ -104,7 +113,7 @@
 .calendar .calendar-dates .days .day.label
 {
     height: 40px;
-    background-color: white;
+    background-color: #1b1b1b;
     color: black;
     border:none;
     font-weight:bold;
