@@ -18,7 +18,7 @@
     display: none;
     position: absolute;
     background-color: #1b1b1b;
-    color: #1caff6;
+    color: #C38d9E;
     text-align: center;
     font-size: 14pt;
     padding-top: 5px;
@@ -35,6 +35,7 @@
     cursor:pointer;
     opacity: .7;
     transition: .5s opacity;
+    color: white;
 }
 
 .calendar .dropdown .dropdown-item:hover
@@ -56,7 +57,7 @@
 .calendar .calendar-btn
 {
     float: left;
-    background-color: #85dcd3;
+    background-color: #C38d9E;
     color: #1b1b1b;
     text-align: center;
     font-size: 14pt;
@@ -69,7 +70,7 @@
 }
 
 .calendar .calendar-btn:hover{
-    background-color:#85dcd3;
+    background-color:#C38d9E;
 }
 
 .calendar .year-btn
@@ -114,7 +115,7 @@
 {
     height: 40px;
     background-color: #1b1b1b;
-    color: black;
+    color: white;
     border:none;
     font-weight:bold;
 }
