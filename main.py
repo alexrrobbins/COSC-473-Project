@@ -29,6 +29,10 @@ def welcome():
 def login():
     return render_template("login.html")
 
+@app.route('/schedule')
+def schedule():
+    return render_template('schedule.html')
+
 #########Logical paths (Model) - User functionality##############
 @app.route('/register',methods=['GET','POST'])
 def register():

@@ -8,10 +8,8 @@
   <p>Welcome {{username}}</p> <br>
   <p>Your email is {{email}}</p>
   <button type="button" id="logout-button", onclick="user_logout()">Logout</button>
-  
-  <p style="text-align: center">
-    <a href="schedule.html?flag=catalog" style="text-decoration: none"> View Schedule </a>
-  </p>
+
+  <button type="button" name="schedule_button" onclick="display_schedule_page()">Display Schedule</button>
 </div>
 
 {% endblock %}

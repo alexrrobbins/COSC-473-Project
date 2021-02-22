@@ -7,6 +7,10 @@ function display_login_page() {
   window.location = "/login";
 }
 
+function display_schedule_page() {
+  window.location = "/schedule";
+}
+
 //////Alert functions - need to be fixed and added later//////////
 function check_for_bad_credentials() {
   if (document.referrer !== '') {
