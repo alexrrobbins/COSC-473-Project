@@ -37,6 +37,10 @@ def register():
     password = user_json['password']
     username = user_json['username']
     new_user = User(email, password, username)
+    if session.has_key('admin_status'):
+        if session['admin_status'] == 1:
+            new_user.add_to_db()
+            return redirect('welcome')
     if new_user.add_to_db():
         session['email'] = new_user.get_email()
         session['username'] = new_user.get_username()
