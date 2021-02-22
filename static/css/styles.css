@@ -105,3 +105,6 @@ a:visited {
 input {
 	margin-bottom: 10px;
 }
+p {
+	color: white;
+}
