@@ -74,6 +74,8 @@ def uder_logout():
         session.pop('username')
     if 'email' in session:
         session.pop('email')
+    if 'admin_status' in session:
+        session.pop('admin_status')
     return '200 OK'
 
 #########Logical paths (Model) - Admin functionality##############
