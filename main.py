@@ -40,7 +40,7 @@ def register():
     if 'admin_status' in session:
         if session['admin_status']:
             new_user.add_to_db()
-            return redirect(url_for('welcome'))
+            return '200 OK'
     if new_user.add_to_db():
         session['email'] = new_user.get_email()
         session['username'] = new_user.get_username()
