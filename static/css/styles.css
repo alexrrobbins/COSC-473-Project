@@ -25,6 +25,13 @@ body {
 	box-shadow: 10px 10px 15px #000000;
 	padding: 20px;
 }
+#scheduleWrapper {
+	background: #1b1b1b;
+	width: 90%;
+	height: 90%;
+	box-shadow: 10px 10px 15px #000000;
+	padding: 30px;
+}
 #title {
 	text-align: center;
 	color:#C38d9E;
