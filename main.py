@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, Response, jsonify, session
+from flask import Flask, render_template, request, redirect, Response, jsonify, session, url_for
 import secrets
 from backend.user import User
 from backend.admin import Admin
@@ -40,7 +40,7 @@ def register():
     if 'admin_status' in session:
         if session['admin_status']:
             new_user.add_to_db()
-            return redirect('welcome')
+            return redirect(url_for('welcome'))
     if new_user.add_to_db():
         session['email'] = new_user.get_email()
         session['username'] = new_user.get_username()
