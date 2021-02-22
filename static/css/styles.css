@@ -87,7 +87,13 @@ body {
 .form-signin {
 	padding: 20px;
 }
+.label {
+	color: white;
+}
 h1 {
+	color: white;
+}
+h3 {
 	color: white;
 }
 label {
