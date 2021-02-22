@@ -103,7 +103,7 @@
     color: #1b1b1b;
     cursor:pointer;
     opacity: .5;
-    transition: .5s opacity;
+    transition: .5s color;
 }
 
 .calendar .calendar-dates .days .day.selected:hover
