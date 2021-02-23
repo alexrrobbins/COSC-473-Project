@@ -64,12 +64,6 @@ body {
 	text-align: center;
 	width: 100%;
 }
-#userFooter {
-	position: absolute;
-	bottom: 0;
-	text-align: center;
-	width: 95%;
-}
 #disclaimer {
 	color: grey;
 }
