@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
 <div id="splashWrapper" class="center">
-  <h1 id="title" class="sheep-header">Schedule Sheep</h1>
-  <br>
-  <h1 class="center" class="sheep-header">User Dashboard</h1>
-  <br>
-  
-  <p>Welcome {{username}}!</p> <br>
+  <h1 id="title" class="sheep-header">User Dashboard</h1>
+  <p>Welcome {{username}}!</p>
   <p>Your email is: {{email}}</p>
   
   <button type="button" id="logout-button" class="btn btn-outline-secondary" onclick="user_logout()">Logout</button>
