@@ -6,6 +6,9 @@ from backend.db_user import db
 
 class Admin(User):
 
+    def admin_add_user_to_db(self,user):
+        return self.our_db.admin_add_user_to_db(user,self.get_email())
+
     def remove_user_from_db(self,email):
         return self.our_db.remove_user_from_db(email)
 

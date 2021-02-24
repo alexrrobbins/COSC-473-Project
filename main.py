@@ -61,7 +61,8 @@ def register():
     new_user = User(email, password, username)
     if 'admin_status' in session:
         if session['admin_status']:
-            new_user.add_to_db()
+            admin = Admin(session['email'],'dummy')
+            admin.admin_add_user_to_db(user)
             return '200 OK'
     if new_user.add_to_db():
         session['email'] = new_user.get_email()

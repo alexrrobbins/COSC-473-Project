@@ -88,3 +88,13 @@ class db():
         sql = "UPDATE login SET admin = 1 WHERE email = %s"
         values = (email,)
         return self.admin_helper(sql,values)
+
+    # Admin add user - basically change the addedby column in db
+    def admin_add_user_to_db(self,user,adminEmail):
+        if self.add_user_to_db(user):
+            sql = "UPDATE login SET AddedBy = %s WHERE email = %s"
+            values = (adminEmail,user.get_email())
+            self.admin_helper(sql,values)
+            return True
+        else:
+            return False
