@@ -3,11 +3,11 @@
 <div id="wrapper">
     <!-----------Paceholder html, feel free to remove but keep id's------------>
     <script type=text/javascript src="{{url_for('static',filename='js/admin.js')}}"></script>
-    <button type="button" id="logout-button", onclick="user_logout()">Logout</button> <br>
     <label for="useremail" class="sr-only">Email Address</label>
     <input type="email" id="useremail" class="form-control" placeholder="Email Address" required="" autofocus="">
-    <button type="button" name="remove_user_button" onclick="remove_user()"">Remove User</button>
-    <button type="button" name="promote_user_button" onclick="promote_user()">Promote User</button>
-    <button type="button" name="add_user" onclick='display_signup_page()'>Add user</button>
+    <button type="button" name="remove_user_button" class="btn btn-outline-secondary" onclick="remove_user()"">Remove User</button>
+    <button type="button" name="promote_user_button" class="btn btn-outline-secondary" onclick="promote_user()">Promote User</button>
+    <button type="button" name="add_user" class="btn btn-outline-secondary" onclick='display_signup_page()'>Add user</button>
+	<button type="button" id="logout-button" class="btn btn-outline-secondary" onclick="user_logout()">Logout</button>
 </div>
 {% endblock %}
