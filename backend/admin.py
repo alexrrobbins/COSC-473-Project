@@ -1,3 +1,6 @@
+# Admin - this class inherits from User and adds extra methods for admins only
+# Written by Alex Robbins
+
 from backend.user import User
 from backend.db_user import db
 
