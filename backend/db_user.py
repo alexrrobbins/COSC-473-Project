@@ -15,8 +15,8 @@ class db():
     # Add user to database through registration or admin add user
     # If user added successfully, return true, otherwise false
     def add_user_to_db(self,user):
-        sql = "INSERT INTO login (username,password,email) VALUES (%s, %s, %s)"
-        values = (user.username,user.password,user.email)
+        sql = "INSERT INTO login (username,password,email,AddedBy) VALUES (%s, %s, %s, %s)"
+        values = (user.username,user.password,user.email,user.email)
         user_cursor = self.db_connection.cursor()
         try:
             user_cursor.execute(sql, values)
