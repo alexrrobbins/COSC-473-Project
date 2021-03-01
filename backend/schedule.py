@@ -1,9 +1,9 @@
 from backend.db_schedule import db
-import math, random
+import math, random, string
 
 class Schedule():
 
-    def __init__(self,schedule_id,email,passcode,added_by):
+    def __init__(self,email,schedule_id='null',passcode='null,',added_by='null'):
         self.schedule_id = schedule_id
         self.email = email
         self.passcode = passcode
@@ -12,6 +12,8 @@ class Schedule():
 
     # Getters - return strings
     def get_id(self):
+        seed = string.ascii_letters
+        self.schedule_id = ''.join(random.choice(seed) for i in range(10))
         return self.schedule_id
 
     def get_owner(self):

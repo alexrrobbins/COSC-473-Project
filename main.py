@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, Response, jsonify, 
 import secrets
 from backend.user import User
 from backend.admin import Admin
+from backend.schedule import Schedule
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes()
 
@@ -121,6 +122,15 @@ def promote_user():
     user_json = request.get_json()
     target_email = user_json['email']
     admin.promote_to_admin(target_email)
+    return '200 OK'
+
+#########Logical paths (Model) - Schedule functionality##############
+@app.route('/create_new_schedule',methods=['GET','POST'])
+def create_new_schedule():
+    new_schedule = Schedule(session['email'])
+    session["schedule_id"] = new_schedule.get_id()
+    session["passcode"] = new_schedule.get_passcode()
+    new_schedule.add_to_db()
     return '200 OK'
 
 if __name__ == '__main__':
