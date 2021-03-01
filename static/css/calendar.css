@@ -81,8 +81,8 @@
 .calendar .calendar-dates .days .day
 {
     float:left;
-    width: 13%;
-    margin: 1% 0;
+    width: 14%;
+    margin: 1% 0.5%;
     padding: 1%;
     font-size: 13pt;
     text-align: center;
