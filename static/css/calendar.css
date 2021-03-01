@@ -82,11 +82,9 @@
 {
     float:left;
     width: 13%;
-    height: 11%;
     padding: 1%;
     font-size: 13pt;
     text-align: center;
-    border-radius: 3px;
     border: solid 1px gray;
     color: white;
 }
