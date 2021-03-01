@@ -9,8 +9,18 @@ class db():
     def add_schedule_to_db(self,schedule):
         sql = "INSERT INTO schedule (schedule_id, email, passcode, added_by) VALUES (%s, %s, %s, %s)"
         values = (schedule.schedule_id, schedule.email, schedule.passcode, schedule.email)
-        user_cursor = self.db_connection.cursor()
-        user_cursor.execute(sql, values)
-        self.db_connection.commit()
-        user_cursor.close()
-        return True
+        return self.schedule_helper(sql,values)
+
+    def delete_schedule_from_db(self,schedule):
+        sql = "DELETE FROM schedule WHERE schedule_id = %s AND email = %s"
+        values = (schedule.schedule_id,schedule.email)
+        return self.schedule_helper(sql,values)
+
+    def schedule_helper(self,sql,values):
+        schedule_cursor = self.db_connection.cursor()
+        schedule_cursor.execute(sql,values)
+        try:
+            self.db_connection.commit()
+            return True
+        except:
+            return False

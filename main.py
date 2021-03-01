@@ -133,5 +133,9 @@ def create_new_schedule():
     new_schedule.add_to_db()
     return '200 OK'
 
+@app.route('/delete_schedule',methods=['GET','POST'])
+def delete_schedule():
+    return '200 OK'
+
 if __name__ == '__main__':
     app.run(debug=True)

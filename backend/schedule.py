@@ -27,3 +27,6 @@ class Schedule():
 
     def add_to_db(self):
         return self.our_db.add_schedule_to_db(self)
+
+    def delete_from_db(self):
+        return self.our_db.delete_schedule_from_db(self)
