@@ -10,11 +10,7 @@ class db():
         sql = "INSERT INTO schedule (schedule_id, email, passcode, added_by) VALUES (%s, %s, %s, %s)"
         values = (schedule.schedule_id, schedule.email, schedule.passcode, schedule.email)
         user_cursor = self.db_connection.cursor()
-        try:
-            user_cursor.execute(sql, values)
-            self.db_connection.commit()
-            user_cursor.close()
-            return True
-        except:
-            user_cursor.close()
-            return False
+        user_cursor.execute(sql, values)
+        self.db_connection.commit()
+        user_cursor.close()
+        return True
