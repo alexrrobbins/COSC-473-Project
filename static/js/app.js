@@ -80,6 +80,20 @@ function user_logout() {
   });
 }
 
+function create_new_schedule() {
+  $.ajax({
+    type: 'POST',
+    url: "/create_new_schedule",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {

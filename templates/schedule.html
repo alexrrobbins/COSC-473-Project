@@ -12,14 +12,14 @@
             <span id="curMonth"></span>
             <div id="months" class="months dropdown"></div>
         </div>
-    
+
         <div class="calendar-btn year-btn" onclick="$('#years').toggle('fast')">
             <span id="curYear"></span>
             <div id="years" class="years dropdown"></div>
         </div>
-    
+
         <div class="clear"></div>
-    
+
         <div class="calendar-dates">
             <div class="days">
                 <div class="day label">SUN</div>
@@ -29,15 +29,15 @@
                 <div class="day label">THUR</div>
                 <div class="day label">FRI</div>
                 <div class="day label">SAT</div>
-    
+
                 <div class="clear"></div>
             </div>
-    
+
             <div id="calendarDays" class="days">
             </div>
         </div>
     </div>
-
+    <button type="button" id="create_schedule_button" onclick="create_new_schedule()">Create New Schedule</button>
     <button type="button" id="logout-button", onclick="user_logout()">Logout</button>
 
     <div id="footer">
