@@ -41,8 +41,8 @@ def login():
     return render_template("login.html")
 
 # Render schedule page when View Schedule is clicked
-@app.route('/schedule')
-def schedule():
+@app.route('/schedule/<id>')
+def schedule(id):
     return render_template('schedule.html')
 
 #########Logical paths (Model) - User functionality##############
@@ -129,9 +129,10 @@ def promote_user():
 def create_new_schedule():
     new_schedule = Schedule(session['email'])
     session["schedule_id"] = new_schedule.get_id()
+    schedule_id = session["schedule_id"]
     session["passcode"] = new_schedule.get_passcode()
     new_schedule.add_to_db()
-    return '200 OK'
+    return redirect(url_for('schedule',id=schedule_id))
 
 @app.route('/delete_schedule',methods=['GET','POST'])
 def delete_schedule():
