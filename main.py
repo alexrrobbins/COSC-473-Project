@@ -45,7 +45,7 @@ def login():
 def scheduleactions():
     return render_template('schedule-actions.html')
 
-@app.route('/schedule/<scedule_id>')
+@app.route('/schedule/<schedule_id>')
 def schedule(schedule_id):
     return render_template('schedule.html',schedule_id=session['schedule_id'],
         passcode=session['passcode'], owner=session['email'])
