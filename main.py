@@ -40,10 +40,15 @@ def welcome():
 def login():
     return render_template("login.html")
 
-# Render schedule page when View Schedule is clicked
+# Render schedule actions page when Schedule Actions is clicked
 @app.route('/schedule-actions')
-def schedule():
+def scheduleactions():
     return render_template('schedule-actions.html')
+
+@app.route('/schedule/<scedule_id>')
+def schedule(schedule_id=session['schedule_id']):
+    return render_template('schedule.html',schedule_id=session['schedule_id'],
+        passcode=session['passcode'], owner=session['email'])
 
 #########Logical paths (Model) - User functionality##############
 
