@@ -45,8 +45,9 @@ def login():
 def scheduleactions():
     return render_template('schedule-actions.html')
 
-@app.route('/schedule/<schedule_id>')
-def schedule(schedule_id):
+@app.route('/schedule')
+def schedule():
+    schedule_id = str(session['schedule_id'])
     passcode = str(session['passcode'])
     owner = session['email']
     return render_template('schedule.html',schedule_id=schedule_id,
@@ -136,10 +137,9 @@ def promote_user():
 def create_new_schedule():
     new_schedule = Schedule(session['email'])
     session["schedule_id"] = new_schedule.get_id()
-    id = session["schedule_id"]
     session["passcode"] = new_schedule.get_passcode()
     new_schedule.add_to_db()
-    return redirect(url_for('schedule',schedule_id=id))
+    return '200 OK'
 
 @app.route('/delete_schedule',methods=['GET','POST'])
 def delete_schedule():
