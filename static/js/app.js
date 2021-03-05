@@ -8,7 +8,7 @@ function display_login_page() {
 }
 
 function display_schedule_page() {
-  window.location = "/schedule";
+  window.location = "/schedule-actions";
 }
 
 //////Alert functions - need to be fixed and added later//////////
