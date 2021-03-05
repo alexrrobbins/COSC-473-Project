@@ -48,7 +48,7 @@ def scheduleactions():
 @app.route('/schedule')
 def schedule():
     schedule_id = str(session['schedule_id'])
-    passcode = str(session['passcode'])
+    passcode = session['passcode']
     owner = session['email']
     return render_template('schedule.html',schedule_id=schedule_id,
         passcode=passcode, owner=owner)
