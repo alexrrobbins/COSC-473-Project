@@ -143,6 +143,8 @@ def create_new_schedule():
 
 @app.route('/delete_schedule',methods=['GET','POST'])
 def delete_schedule():
+    schedule_to_delete = Schedule(session['email'], session['schedule_id'])
+    schedule_to_delete.delete_from_db()
     return '200 OK'
 
 if __name__ == '__main__':

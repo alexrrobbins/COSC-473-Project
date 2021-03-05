@@ -94,6 +94,20 @@ function create_new_schedule() {
   });
 }
 
+function delete_schedule() {
+  $.ajax({
+    type: 'POST',
+    url: "/delete_schedule",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule-actions";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {
