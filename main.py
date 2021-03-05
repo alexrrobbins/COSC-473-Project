@@ -43,7 +43,7 @@ def login():
 # Render schedule page when View Schedule is clicked
 @app.route('/schedule-actions')
 def schedule():
-    return render_template('schedule.html')
+    return render_template('schedule-actions.html')
 
 #########Logical paths (Model) - User functionality##############
 
