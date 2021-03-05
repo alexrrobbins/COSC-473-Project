@@ -86,7 +86,7 @@ function create_new_schedule() {
     url: "/create_new_schedule",
     success: function(e) {
       console.log(e);
-      window.location = "/schedule";
+      //window.location = "/schedule";
     },
     error: function(error) {
               console.log(error);
