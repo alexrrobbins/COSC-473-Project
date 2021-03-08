@@ -45,7 +45,7 @@ body {
 	padding-bottom: 50px;
 	color: white;
 }
-#user-signup, #user-login, #user-schedule {
+#user-signup, #user-login, #user-schedule, #user-passcode {
 	height: 1in;
 	width: 40%;
 	margin: 10px;
