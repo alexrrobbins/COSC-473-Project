@@ -93,6 +93,10 @@ body {
 .form-signin {
 	padding: 20px;
 }
+.form-passcode {
+	padding: 20px;
+}
+
 .label {
 	color: white;
 }
