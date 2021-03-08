@@ -154,8 +154,8 @@ def delete_schedule():
 @app.route('/retrieve_schedule',methods=['GET','POST'])
 def retrieve_schedule():
     schedule_json = request.get_json()
-    schedule_id = str(schedule_json['schedule_id'])
-    passcode = str(schedule_json['passcode'])
+    schedule_id = schedule_json['schedule_id']
+    passcode = schedule_json['passcode']
     schedule_to_get = Schedule(email='null',schedule_id=schedule_id,passcode=passcode)
     if schedule_to_get.retrieve_schedule():
         session['email'] = schedule_to_get.get_email()
