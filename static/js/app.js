@@ -12,11 +12,7 @@ function display_schedule_page() {
 }
 
 function display_passcode_page() {
-<<<<<<< HEAD
-  window.location = "/passcode";
-=======
   window.location = "/schedule-id-passcode";
->>>>>>> c7ee23325111cff19f567bf40b5e68b64ec17d63
 }
 
 //////Alert functions - need to be fixed and added later//////////
