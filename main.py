@@ -157,7 +157,10 @@ def retrieve_schedule():
     schedule_id = str(schedule_json['schedule_id'])
     passcode = str(schedule_json['passcode'])
     schedule_to_get = Schedule(email='null',schedule_id=schedule_id,passcode=passcode)
-    schedule_to_get.retrieve_schedule()
+    if schedule_to_get.retrieve_schedule():
+        session['email'] = schedule_to_get.get_email()
+        session['schedule_id'] = schedule.get_id()
+        session['passcode'] = "CENSORED"
     return '200 OK'
 
 if __name__ == '__main__':

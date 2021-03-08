@@ -17,7 +17,16 @@ class db():
         return self.schedule_helper(sql,values)
 
     def retrieve_schedule_from_db(self, schedule):
-        return True
+        sql = "SELECT email FROM schedule WHERE schedule_id = %s AND passcode = %s"
+        values = (schedule.schedule_id, schedule.passcode)
+        schedule_cursor = self.db_connection.cursor()
+        schedule_cursor.execute(sql,values)
+        email = schedule_cursor.fetchall()[0][0]
+        if email:
+            schedule.set_email(email)
+            return True
+        else:
+            return False
 
     def schedule_helper(self,sql,values):
         schedule_cursor = self.db_connection.cursor()

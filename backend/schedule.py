@@ -23,6 +23,9 @@ class Schedule():
         self.passcode = str(math.floor(random.random() * 100000))
         return self.passcode
 
+    def set_email(self, email):
+        self.email = email
+
     # These functions return true or false based on whether the db actions were successful
 
     def add_to_db(self):
