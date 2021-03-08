@@ -16,6 +16,9 @@ class Schedule():
         self.schedule_id = ''.join(random.choice(seed) for i in range(10))
         return self.schedule_id
 
+    def get_static_id(self):
+        return self.schedule_id
+
     def get_owner(self):
         return self.email
 

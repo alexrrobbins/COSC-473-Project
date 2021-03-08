@@ -45,6 +45,9 @@ def login():
 def scheduleactions():
     return render_template('schedule-actions.html')
 
+# Render schedule page
+# Note: We need a different view for the guest without the buttons
+# if we keep the buttons on that page or move them to the actions.
 @app.route('/schedule')
 def schedule():
     schedule_id = str(session['schedule_id'])
@@ -159,7 +162,7 @@ def retrieve_schedule():
     schedule_to_get = Schedule(email='null',schedule_id=schedule_id,passcode=passcode)
     if schedule_to_get.retrieve_schedule():
         session['email'] = schedule_to_get.get_owner()
-        session['schedule_id'] = schedule_to_get.get_id()
+        session['schedule_id'] = schedule_to_get.get_static_id()
         session['passcode'] = "CENSORED"
     return '200 OK'
 
