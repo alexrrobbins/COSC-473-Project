@@ -9,7 +9,7 @@
   Found at https://www.cssscript.com/create-simple-event-calendar-javascript-caleandar-js/
 	*/
 .cld-main{
-  width: 400px;
+  width: 100%;
 }
 .cld-main a{
   color: #0080FF;
