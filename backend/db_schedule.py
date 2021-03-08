@@ -16,6 +16,9 @@ class db():
         values = (schedule.schedule_id,schedule.email)
         return self.schedule_helper(sql,values)
 
+    def retrieve_schedule_from_db(self, schedule):
+        return True
+
     def schedule_helper(self,sql,values):
         schedule_cursor = self.db_connection.cursor()
         schedule_cursor.execute(sql,values)

@@ -151,5 +151,14 @@ def delete_schedule():
     schedule_to_delete.delete_from_db()
     return '200 OK'
 
+@app.route('/retrieve_schedule',methods=['GET','POST'])
+def retrieve_schedule():
+    schedule_json = request.get_json()
+    schedule_id = str(schedule_json['schedule_id'])
+    passcode = str(schedule_json['passcode'])
+    schedule_to_get = Schedule(email='null',schedule_id=schedule_id,passcode=passcode)
+    schedule_to_get.retrieve_schedule()
+    return '200 OK'
+
 if __name__ == '__main__':
     app.run(debug=True)

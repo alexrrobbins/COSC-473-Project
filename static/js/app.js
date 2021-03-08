@@ -112,6 +112,25 @@ function delete_schedule() {
   });
 }
 
+function retrieve_schedule() {
+  var schedule_id = $('inputScheduleID').val();
+  var passcode = $('inputSchedulePassword').val();
+  var schedule_info = {schedule_id: schedule_id, passcode: passcode};
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(schedule_info),
+    url: "/retrieve_schedule",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {

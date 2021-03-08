@@ -30,3 +30,6 @@ class Schedule():
 
     def delete_from_db(self):
         return self.our_db.delete_schedule_from_db(self)
+
+    def retrieve_schedule(self):
+        return self.our_db.retrieve_schedule_from_db(self)
