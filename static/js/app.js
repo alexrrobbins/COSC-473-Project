@@ -113,8 +113,8 @@ function delete_schedule() {
 }
 
 function retrieve_schedule() {
-  var schedule_id = $('inputScheduleID').val();
-  var passcode = $('inputSchedulePassword').val();
+  var schedule_id = $('#inputScheduleID').val();
+  var passcode = $('#inputSchedulePassword').val();
   var schedule_info = {schedule_id: schedule_id, passcode: passcode};
   $.ajax({
     type: 'POST',
