@@ -53,6 +53,10 @@ def schedule():
     return render_template('schedule.html',schedule_id=schedule_id,
         passcode=passcode, owner=owner)
 
+@app.route('/schedule-id-passcode')
+def schedule_id_passcode():
+    return render_template("passcode.html")
+
 #########Logical paths (Model) - User functionality##############
 
 # Register the user - get the required field data from the html fields
