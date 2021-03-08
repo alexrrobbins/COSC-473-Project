@@ -159,7 +159,7 @@ def retrieve_schedule():
     schedule_to_get = Schedule(email='null',schedule_id=schedule_id,passcode=passcode)
     if schedule_to_get.retrieve_schedule():
         session['email'] = schedule_to_get.get_owner()
-        session['schedule_id'] = schedule.get_id()
+        session['schedule_id'] = schedule_to_get.get_id()
         session['passcode'] = "CENSORED"
     return '200 OK'
 
