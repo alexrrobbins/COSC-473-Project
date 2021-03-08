@@ -8,7 +8,7 @@ function display_login_page() {
 }
 
 function display_schedule_page() {
-  window.location = "/schedule";
+  window.location = "/schedule-actions";
 }
 
 //////Alert functions - need to be fixed and added later//////////
@@ -73,6 +73,34 @@ function user_logout() {
     success: function(e) {
       console.log(e);
       window.location = "/";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
+function create_new_schedule() {
+  $.ajax({
+    type: 'POST',
+    url: "/create_new_schedule",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
+function delete_schedule() {
+  $.ajax({
+    type: 'POST',
+    url: "/delete_schedule",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule-actions";
     },
     error: function(error) {
               console.log(error);

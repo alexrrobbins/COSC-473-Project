@@ -2,8 +2,6 @@
 # Written by Alex Robbins
 # Closed 2/8/2021
 
-##########This class is closed!!!##########
-########Handle all logic in db_user file########
 from backend.db_user import db
 
 class User():
@@ -15,6 +13,8 @@ class User():
         self.admin = admin
         self.our_db = db()
 
+# Getters - return strings, setter returns nothing
+
     def get_username(self):
         return self.username
 
@@ -25,6 +25,7 @@ class User():
         self.username = self.our_db.get_username(self)
 
 # These functions return true or false based on whether the db actions were successful
+
     def change_password(self, new_password):
         pw_change_result = self.our_db.change_password_in_db(self, new_password)
         if pw_change_result:

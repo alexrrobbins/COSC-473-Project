@@ -9,7 +9,8 @@
 .calendar
 {
     background-color: #1b1b1b;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .calendar .dropdown
@@ -84,10 +85,10 @@
     width: 12%;
     margin: 1%;
     padding: 1%;
-    font-size:13pt;
-    text-align:center;
-    border-radius: 10px;
-    border: solid 1px #ddd;
+    font-size: 13pt;
+    text-align: center;
+    border-radius: 3px;
+    border: solid 1px gray;
     color: white;
 }
 
@@ -99,7 +100,7 @@
 
 .calendar .calendar-dates .days .day.selected
 {
-    background-color: #1caff6;
+    background-color: #C38d9E;
     color: #1b1b1b;
     cursor:pointer;
     opacity: .5;
