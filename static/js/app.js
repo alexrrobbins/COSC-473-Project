@@ -11,6 +11,10 @@ function display_schedule_page() {
   window.location = "/schedule-actions";
 }
 
+function display_passcode_page() {
+  window.location = "/passcode";
+}
+
 //////Alert functions - need to be fixed and added later//////////
 function check_for_bad_credentials() {
   if (document.referrer !== '') {
