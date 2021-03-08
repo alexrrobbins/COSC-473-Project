@@ -5,133 +5,116 @@
 	Lighter Blue: #85dcd3
 	Darker Blue: #858fdc
 	Red: #E27D60
+
+  Found at https://www.cssscript.com/create-simple-event-calendar-javascript-caleandar-js/
 	*/
-.calendar
-{
-    background-color: #1b1b1b;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.cld-main{
+  width: 400px;
 }
-
-.calendar .dropdown
-{
-    display: none;
-    position: absolute;
-    background-color: #1b1b1b;
-    color: #C38d9E;
-    text-align: center;
-    font-size: 14pt;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    width: 160px;
-    left: 0px;
-    z-index: 2000;
-    box-shadow: 0px 5px 10px #000000;
+.cld-main a{
+  color: #0080FF;
 }
-
-.calendar .dropdown .dropdown-item
-{
-    cursor:pointer;
-    opacity: .7;
-    transition: .5s color;
-    color: white;
+.cld-main svg{
+  fill: #0080FF;
 }
-
-.calendar .dropdown .dropdown-item:hover
-{
-    opacity: 1;
-}
-
-.calendar .years
-{
-    display:none;
-}
-
-.calendar .title
-{
-    text-align:center;
-    font-size:20pt;
-}
-
-.calendar .calendar-btn
-{
-    float: left;
-    background-color: #C38d9E;
-    color: #1b1b1b;
-    text-align: center;
-    font-size: 14pt;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  .cld-datetime{
     position: relative;
-    width: 20%;
-    cursor: pointer;
-    transition: .5s background-color;
-}
-
-.calendar .calendar-btn:hover{
-    background-color:#C38d9E;
-}
-
-.calendar .year-btn
-{
-    float:right;
-}
-
-.calendar .calendar-dates .days .day
-{
-    float:left;
-    width: 12%;
-    margin: 1%;
-    padding: 1%;
-    font-size: 13pt;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+  }
+  .cld-datetime .today{
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: auto;
     text-align: center;
-    border-radius: 3px;
-    border: solid 1px gray;
-    color: white;
-}
+  }
+  .cld-nav{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .cld-nav:hover{
+    cursor: pointer;
+  }
+  .cld-nav:hover svg{
+      fill: #005EFF;
+  }
+  .cld-rwd{
+    float: left;
+  }
+  .cld-fwd{
+    float: right;
+  }
+    .cld-nav svg:hover{
 
-.calendar .calendar-dates .days .day.blank
-{
-    background-color: #1b1b1b;
-    border:none;
-}
-
-.calendar .calendar-dates .days .day.selected
-{
-    background-color: #C38d9E;
-    color: #1b1b1b;
-    cursor:pointer;
-    opacity: .5;
-    transition: .5s color;
-}
-
-.calendar .calendar-dates .days .day.selected:hover
-{
-    opacity: 1;
-}
-
-.calendar .calendar-dates .days .day.label
-{
-    height: 40px;
-    background-color: #1b1b1b;
-    color: white;
-    border:none;
-    font-weight:bold;
-}
-
-.clear{
-    clear:both;
-}
-
-@media only screen and (max-width: 960px) {
-    .calendar{
-        width: 100%;
-        margin: 0px;
-        margin: 0px;
-        box-sizing: border-box;
-        position: relative;
-        left: 0px;
     }
+.cld-labels, .cld-days{
+  padding-left: 0;
 }
+  .cld-label, .cld-day{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+  }
+  .cld-day{
+    border: 1px solid #eee;
+  }
+  .cld-day.today .cld-number{
+    background: #0080FF;
+    color: #fff;
+  }
+  .cld-day.disableDay{
+    opacity: 0.5;
+  }
+  .cld-day.nextMonth, .cld-day.prevMonth{
+    opacity: 0.33;
+  }
+    .cld-number{
+      position: relative;
+      margin: 0;
+      padding: 10px;
+    }
+      .cld-title{
+        position: absolute;
+        z-index: 5;
+        display: none;
+        top: 35px;
+        left: 0;
+        padding: 5px 10px;
+        background: #fff;
+        white-space: nowrap;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 12px;
+      }
+      .cld-number:hover .cld-title{
+        display: block;
+      }
+      .cld-title::before{
+        content: '';
+        position: absolute;
+        top: -7.5px; left: 10px;
+        width: 0;
+        height: 0;
+        border-left: 7.5px solid transparent;
+        border-right: 7.5px solid transparent;
+
+        border-bottom: 7.5px solid #ccc;
+      }
+      .cld-number.eventday{
+        font-weight: bold;
+        color: #0080FF;
+      }
+      .cld-number.eventday:hover{
+        cursor: pointer;
+        background: #eee;
+      }
+      .today .cld-number.eventday:hover{
+        background: #005EFF;
+      }
