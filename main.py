@@ -53,8 +53,12 @@ def schedule():
     schedule_id = str(session['schedule_id'])
     passcode = session['passcode']
     owner = session['email']
-    return render_template('schedule.html',schedule_id=schedule_id,
-        passcode=passcode, owner=owner)
+    if 'username' in session:
+        return render_template('schedule_buttons.html',schedule_id=schedule_id,
+            passcode=passcode, owner=owner)
+    else:
+        return render_template('schedule.html',schedule_id=schedule_id,
+            passcode=passcode, owner=owner)
 
 @app.route('/schedule-id-passcode')
 def schedule_id_passcode():
