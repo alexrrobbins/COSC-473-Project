@@ -64,6 +64,10 @@ def schedule():
 def schedule_id_passcode():
     return render_template("passcode.html")
 
+@app.route('/change-password')
+def change_password():
+    return render_template("change-password.html")
+
 #########Logical paths (Model) - User functionality##############
 
 # Register the user - get the required field data from the html fields
