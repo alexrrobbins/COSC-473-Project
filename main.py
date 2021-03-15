@@ -5,6 +5,7 @@ import secrets
 from backend.user import User
 from backend.admin import Admin
 from backend.schedule import Schedule
+from backend.email_password_reset import EmailPwdReset
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes()
 
@@ -181,6 +182,8 @@ def retrieve_schedule():
 def email_change_password_request():
     user_json = request.get_json()
     email = user_json['email']
+    e = EmailPwdReset(email)
+    e.send_pwd_reset_message()
     return '200 OK'
 
 if __name__ == '__main__':
