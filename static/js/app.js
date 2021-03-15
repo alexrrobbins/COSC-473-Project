@@ -88,6 +88,26 @@ function user_logout() {
   });
 }
 
+function email_change_password_request() {
+  var email = $('#useremail_pwd').val();
+  var email_info = {email: email};
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(email_info),
+    url: "/email_change_password_request",
+    success: function(e) {
+      console.log(e);
+      window.location = "/login";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
+///Logical functions - schedule functionality
+
 function create_new_schedule() {
   $.ajax({
     type: 'POST',

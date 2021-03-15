@@ -174,5 +174,14 @@ def retrieve_schedule():
         session['passcode'] = "CENSORED"
     return '200 OK'
 
+#########Logical paths (Model) - Email functionality##############
+
+# When forgot password button is clicked, send the user a reset email
+@app.route('/email_change_password_request',methods=['GET','POST'])
+def email_change_password_request():
+    user_json = request.get_json()
+    email = user_json['email']
+    return '200 OK'
+
 if __name__ == '__main__':
     app.run(debug=True)
