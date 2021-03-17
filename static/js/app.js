@@ -155,28 +155,6 @@ function retrieve_schedule() {
   });
 }
 
-///////////////Event functionality - WIP - Temporary Logic Batch Implementation////////////////
-function create_event() {
-  for (i = 0; i < events.lenth; i++) {
-    date_to_add = events[i]['Date'];
-    title_to_add = events[i]['Title'];
-    event_info = {Date: date_to_add, Title: title_to_add};
-    $.ajax({
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify(event_info),
-      url: "/add_event",
-      success: function(e) {
-        console.log(e);
-      },
-      error: function(error) {
-                console.log(error);
-            }
-    });
-  }
-  window.location = "/schedule";
-}
-
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {

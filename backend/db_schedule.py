@@ -40,6 +40,6 @@ class db():
 
 ##############Event methods##############
     def add_event_to_db(self, event):
-        sql = "INSERT INTO event (Title, Date, schedule_id) VALES (%s, %s, %s)"
-        values = (event.title, event.date, event.schedule_id)
+        sql = "INSERT INTO event (schedule_id, title, date, time) VALES (%s, %s, %s, %s)"
+        values = (event.schedule_id, event.title, event.date, event.time)
         return self.schedule_helper(sql,values)
