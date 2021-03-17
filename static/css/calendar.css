@@ -1,6 +1,7 @@
 /* Calendar CSS File. Accent Colors: 
 	Pink: #C38d9E
 	Gray: #1b1b1b
+  Light Gray: #342a2a
 	Blue: #85BADC
 	Lighter Blue: #85dcd3
 	Darker Blue: #858fdc
@@ -13,9 +14,6 @@
 }
 .cld-main a{
   color: #0080FF;
-}
-.cld-main svg{
-  fill: #0080FF;
 }
   .cld-datetime{
     position: relative;
@@ -37,12 +35,13 @@
     width: 20px;
     height: 20px;
     margin-top: 2px;
+    fill: white;
   }
   .cld-nav:hover{
     cursor: pointer;
   }
   .cld-nav:hover svg{
-      fill: #005EFF;
+      fill: #85BADC;
   }
   .cld-rwd{
     float: left;
@@ -63,11 +62,20 @@
     text-align: center;
   }
   .cld-day{
-    border: 1px solid #eee;
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    height: 90px;
+    border: 1px solid #342a2a;
+    overflow-y: auto;
   }
-  .cld-day.today .cld-number{
-    background: #0080FF;
-    color: #fff;
+  .cld-day.clickable:hover{
+    cursor: pointer;
+  }
+  .cld-day.today{
+    border: 1px solid #C38d9E;
   }
   .cld-day.disableDay{
     opacity: 0.5;
@@ -76,45 +84,23 @@
     opacity: 0.33;
   }
     .cld-number{
-      position: relative;
       margin: 0;
-      padding: 10px;
+      text-align: left;
     }
       .cld-title{
-        position: absolute;
-        z-index: 5;
-        display: none;
-        top: 35px;
-        left: 0;
-        padding: 5px 10px;
-        background: #fff;
-        white-space: nowrap;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 12px;
-      }
-      .cld-number:hover .cld-title{
+        font-size: 10px;
         display: block;
+        margin: 0;
+        font-weight: normal;
       }
-      .cld-title::before{
-        content: '';
-        position: absolute;
-        top: -7.5px; left: 10px;
-        width: 0;
-        height: 0;
-        border-left: 7.5px solid transparent;
-        border-right: 7.5px solid transparent;
-
-        border-bottom: 7.5px solid #ccc;
+      .cld-day:hover{
+        background: #342a2a;
       }
       .cld-number.eventday{
         font-weight: bold;
-        color: #0080FF;
       }
       .cld-number.eventday:hover{
-        cursor: pointer;
-        background: #eee;
+        background: #342a2a;
       }
       .today .cld-number.eventday:hover{
-        background: #005EFF;
       }
