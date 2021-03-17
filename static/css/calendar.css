@@ -1,6 +1,7 @@
 /* Calendar CSS File. Accent Colors: 
 	Pink: #C38d9E
 	Gray: #1b1b1b
+  Light Gray: #342a2a
 	Blue: #85BADC
 	Lighter Blue: #85dcd3
 	Darker Blue: #858fdc
@@ -39,7 +40,7 @@
     cursor: pointer;
   }
   .cld-nav:hover svg{
-      fill: #005EFF;
+      fill: #85BADC;
   }
   .cld-rwd{
     float: left;
@@ -92,13 +93,13 @@
         font-weight: normal;
       }
       .cld-day:hover{
-        background: #eee;
+        background: #342a2a;
       }
       .cld-number.eventday{
         font-weight: bold;
       }
       .cld-number.eventday:hover{
-        background: #eee;
+        background: #342a2a;
       }
       .today .cld-number.eventday:hover{
       }
