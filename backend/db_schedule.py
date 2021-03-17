@@ -6,6 +6,7 @@ class db():
         parent_db = db_connection()
         self.db_connection = mysql.connect(host=parent_db.HOST, database=parent_db.DATABASE, user=parent_db.USER, password=parent_db.PASSWORD)
 
+##############Schedule methods####################
     def add_schedule_to_db(self,schedule):
         sql = "INSERT INTO schedule (schedule_id, email, passcode, added_by) VALUES (%s, %s, %s, %s)"
         values = (schedule.schedule_id, schedule.email, schedule.passcode, schedule.email)
@@ -36,3 +37,9 @@ class db():
             return True
         except:
             return False
+
+##############Event methods##############
+    def add_event_to_db(self, event):
+        sql = "INSERT INTO event (schedule_id, title, date, time) VALES (%s, %s, %s, %s)"
+        values = (event.schedule_id, event.title, event.date, event.time)
+        return self.schedule_helper(sql,values)

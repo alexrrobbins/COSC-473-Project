@@ -5,6 +5,7 @@ import secrets
 from backend.user import User
 from backend.admin import Admin
 from backend.schedule import Schedule
+from backend.event import Event
 from backend.email_password_reset import EmailPwdReset
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes()
@@ -173,6 +174,18 @@ def retrieve_schedule():
         session['email'] = schedule_to_get.get_owner()
         session['schedule_id'] = schedule_to_get.get_static_id()
         session['passcode'] = "CENSORED"
+    return '200 OK'
+
+@app.route('/add_event',methods=['GET','POST'])
+def add_event():
+    event_json = request.get_json()
+    schedule_id = session['schedule_id']
+    event_date = event_json['Date']
+    event_title = event_json['Title']
+    if 'Time' in event_json:
+        event_time = event_json['Time']
+    event = Event(schedule_id,event_date,event_title)
+    event.add_to_db()
     return '200 OK'
 
 #########Logical paths (Model) - Email functionality##############
