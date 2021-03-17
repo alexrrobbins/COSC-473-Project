@@ -12,8 +12,8 @@ class Event():
     def get_title(self):
         return self.title
 
-    def get_time(self):
-        return self.time
+    def get_date(self):
+        return self.date
 
     def add_to_db(self):
         return self.our_db.add_event_to_db(self)
