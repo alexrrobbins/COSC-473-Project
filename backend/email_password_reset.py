@@ -1,18 +1,15 @@
 from backend.email import Email
+import random, string
 
 class EmailPwdReset(Email):
 
     def send_pwd_reset_message(self):
-        sent_from = 'schedulesheep@gmail.com'
-        to = self.recipient_address
-        subject = 'Password Reset'
-        body = "Hello, you have requested a password reset on schedulesheep.com, for user with email address: " + self.recipient_address
-
+        seed = string.ascii_letters
+        temp_pin = ''.join(random.choice(seed) for i in range(10))
         email_text = """\
-        From: %s
-        To: %s
-        Subject: %s
+        Subject: Password Reset
 
-        %s
-        """ % (sent_from, ", ".join(to), subject, body)
+
+        Hello, you have requested a password reset on schedulesheep.com. Your password reset pin is """ + temp_pin
+
         return self.send_message(email_text)
