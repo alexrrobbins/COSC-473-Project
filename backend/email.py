@@ -9,7 +9,7 @@ class Email():
         self.server.ehlo()
         self.server.starttls()
         # Dummy Google account created for the project
-        self.session.login("schedulesheep@gmail.com", "IUPcosc1!")
+        self.server.login("schedulesheep@gmail.com", "IUPcosc1!")
 
     def send_message(self,message):
         self.server.sendmail("schedulesheep@gmail.com", self.recipient_address, message)
