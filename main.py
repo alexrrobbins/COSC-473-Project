@@ -182,8 +182,7 @@ def add_event():
     schedule_id = session['schedule_id']
     event_date = event_json['Date']
     event_title = event_json['Title']
-    if 'Time' in event_json:
-        event_time = event_json['Time']
+    #event_time = event_json['Time']
     event = Event(schedule_id,event_date,event_title)
     event.add_to_db()
     return '200 OK'

@@ -155,6 +155,26 @@ function retrieve_schedule() {
   });
 }
 
+function add_event() {
+  var event_date = $('#eventDate').val();
+  var event_title = $('#eventTitle').val();
+  var event_time = $('#eventTime').val();
+  var event_info = {Date: event_date, Title: event_title};
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(event_info),
+    url: "/add_event",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {
