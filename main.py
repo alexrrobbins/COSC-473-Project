@@ -70,6 +70,10 @@ def schedule_id_passcode():
 def change_password():
     return render_template("change-password.html")
 
+@app.route('/change-password-2')
+def change_password_2():
+    return render_template("password-reset.html")
+
 #########Logical paths (Model) - User functionality##############
 
 # Register the user - get the required field data from the html fields
@@ -127,6 +131,16 @@ def uder_logout():
         session.pop('email')
     if 'admin_status' in session:
         session.pop('admin_status')
+    return '200 OK'
+
+@app.route('/change_password_request',methods=['GET','POST'])
+def change_password_page():
+    reset_json = request.get_json()
+    email = user_json['email']
+    new_password = user_json['new_pwd']
+    if session['pwd_reset_pin'] == reset_json['reset_pin']:
+        target_user = User(email,"null")
+        target_user.change_password(new_password)
     return '200 OK'
 
 #########Logical paths (Model) - Admin functionality##############
@@ -196,6 +210,8 @@ def email_change_password_request():
     email = user_json['email']
     e = EmailPwdReset(email)
     e.send_pwd_reset_message()
+    session['pwd_reset_pin'] = e.get_pin()
+    session['tmp_email'] = email
     return '200 OK'
 
 if __name__ == '__main__':
