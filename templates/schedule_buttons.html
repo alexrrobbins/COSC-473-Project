@@ -1,5 +1,6 @@
-{% include 'schedule.html' %}
+{% extends 'schedule.html' %}
 {% block buttons %}
+{{ super() }}
 <button type="button" id="delete_schedule_button", onclick="delete_schedule()">Delete Schedule</button>
 <button type="button" id="logout-button", onclick="user_logout()">Logout</button>
 <form>
