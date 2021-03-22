@@ -76,6 +76,9 @@ body {
 #notice {
 	color: #E27D60;
 }
+#owner-buttons {
+	display: inline-block;
+}
 .center {
 	margin: 0;
   	position: absolute;
