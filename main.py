@@ -72,7 +72,7 @@ def change_password():
 
 @app.route('/change-password-2')
 def change_password_2():
-    return render_template("password-reset.html")
+    return render_template("password_reset.html")
 
 #########Logical paths (Model) - User functionality##############
 
