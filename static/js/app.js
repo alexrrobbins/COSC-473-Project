@@ -109,7 +109,7 @@ function email_change_password_request() {
 function reset_password() {
   var email = $('#useremail_pwd_2').val();
   var reset_pin = $('#pwd_reset_pin').val();
-  var new_pwd = $('#new_pwd').val();
+  var new_pwd = stringToHash($('#new_pwd').val());
   var reset_info = {email: email, reset_pin: reset_pin, new_pwd: new_pwd};
   $.ajax({
     type: 'POST',
