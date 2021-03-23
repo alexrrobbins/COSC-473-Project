@@ -136,9 +136,9 @@ def uder_logout():
 @app.route('/change_password_request',methods=['GET','POST'])
 def change_password_page():
     user_json = request.get_json()
-    email = user_json['email']
+    email = session['tmp_email']
     new_password = user_json['new_pwd']
-    if session['pwd_reset_pin'] == reset_json['reset_pin']:
+    if session['pwd_reset_pin'] == user_json['reset_pin']:
         target_user = User(email,"null")
         target_user.change_password(new_password)
     return '200 OK'
