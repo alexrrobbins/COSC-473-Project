@@ -74,7 +74,7 @@ class db():
     # Change a user's password given an email
     def change_password_in_db(self,email,new_password):
         sql = "UPDATE login SET password = %s WHERE email = %s"
-        values = (email,new_password)
+        values = (new_password,email)
         return self.admin_helper(sql,values)
 
     # Delete a user from db given an email
