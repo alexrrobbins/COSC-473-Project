@@ -77,7 +77,7 @@ body {
 	color: #E27D60;
 }
 #owner-buttons {
-	display: inline;
+	display: block;
 }
 .center {
 	margin: 0;
