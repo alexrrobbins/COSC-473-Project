@@ -31,7 +31,7 @@ def welcome():
     username = session['username']
     email = session['email']
     if session['admin_status']:
-        admin - Admin(session['email'],'null')
+        admin = Admin(session['email'],'null')
         data = admin.list_users()
         return render_template("admin.html",
         username=username, email=email, data=data)
