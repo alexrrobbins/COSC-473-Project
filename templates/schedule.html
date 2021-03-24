@@ -7,6 +7,10 @@
     <p>Schedule Id is {{schedule_id}}</p>
     <p>Schedule Passcode is {{passcode}}</p>
     <p>Owner is {{owner}}</p>
+
+    {% block buttons %}
+    {% endblock %}
+
     <div id="caleandar">
 
     </div>
@@ -22,9 +26,6 @@
         var element = document.getElementById('caleandar');
         caleandar(element, events, settings);
     </script>
-
-    {% block buttons %}
-    {% endblock %}
 
     <div id="footer">
         <p id="disclaimer">
