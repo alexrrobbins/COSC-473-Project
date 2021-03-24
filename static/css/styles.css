@@ -82,6 +82,9 @@ body {
 	right: 20;
 	padding-bottom: 40px;
 }
+#owner-buttons form{
+	display: block;
+}
 .center {
 	margin: 0;
   	position: absolute;
