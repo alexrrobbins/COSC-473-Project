@@ -101,7 +101,7 @@ class db():
 
 ##############Admin view functionality#####################
     def list_users(self):
-        sql = "SELECT * FROM LOGIN"
+        sql = "SELECT * FROM login"
         user_cursor = self.db_connection.cursor()
         user_cursor.execute(sql)
         return user_cursor.fetchall()
