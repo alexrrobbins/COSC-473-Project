@@ -35,7 +35,7 @@ function promote_user() {
 }
 function admin_change_user_password() {
   var email = $("#useremail").val();
-  var new_password = stringToHash($('#new_user_password'));
+  var new_password = stringToHash($('#new_user_password').val());
   var user_info = {email: email, new_password: new_password};
   $.ajax({
     type: 'POST',
