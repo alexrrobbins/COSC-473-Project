@@ -33,3 +33,21 @@ function promote_user() {
           }
   });
 }
+function admin_change_user_password() {
+  var email = $("#useremail").val();
+  var new_password = stringToHash($('#new_user_password'));
+  var user_info = {email: email, new_password: new_password};
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(user_info),
+    url: "/admin_change_password",
+    success: function(e) {
+      console.log(e);
+      window.location = "/welcome";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}

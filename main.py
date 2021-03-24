@@ -163,6 +163,16 @@ def promote_user():
     admin.promote_to_admin(target_email)
     return '200 OK'
 
+@app.route('/admin_change_password',methods=['GET','POST'])
+def admin_change_password():
+    admin = Admin(session['email'],'dummy')
+    user_json = request.get_json()
+    target_email = user_json['email']
+    new_password = user_json['new_password']
+    target_user = User(target_email, "null")
+    target_user.change_password(new_password)
+    return '200 OK'
+
 #########Logical paths (Model) - Schedule functionality##############
 @app.route('/create_new_schedule',methods=['GET','POST'])
 def create_new_schedule():
