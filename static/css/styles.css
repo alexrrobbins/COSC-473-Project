@@ -78,6 +78,7 @@ body {
 }
 #owner-buttons {
 	display: block;
+	padding-bottom: 40px;
 }
 .center {
 	margin: 0;
