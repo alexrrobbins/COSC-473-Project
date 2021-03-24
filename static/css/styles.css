@@ -77,8 +77,9 @@ body {
 	color: #E27D60;
 }
 #owner-buttons {
-	display: block;
-	padding-bottom: 40px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 .center {
 	margin: 0;

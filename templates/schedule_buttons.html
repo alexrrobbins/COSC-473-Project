@@ -1,18 +1,18 @@
 {% extends 'schedule.html' %}
 {% block buttons %}
 {{ super() }}
-<div id="owner-buttons">
-    <button type="button" id="delete_schedule_button", onclick="delete_schedule()">Delete Schedule</button>
-    <button type="button" id="logout-button", onclick="user_logout()">Logout</button>
-    <form>
-        <label>
-            Create a New Event:
-            <input type="text" name="eventName" class="form-control" placeholder="Event Name" required>
-            <input type="date" name="eventDate" required>
-        </label>
-        <p>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="create_event_button", onclick="add_event()">Create Event</button>
-        </p>
-    </form>
-</div>
+
+<button type="button" id="delete_schedule_button", onclick="delete_schedule()">Delete Schedule</button>
+<button type="button" id="logout-button", onclick="user_logout()">Logout</button>
+<form>
+    <label>
+        Create a New Event:
+        <input type="text" name="eventName" class="form-control" placeholder="Event Name" required>
+        <input type="date" name="eventDate" required>
+    </label>
+    <p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" id="create_event_button", onclick="add_event()">Create Event</button>
+    </p>
+</form>
+
 {% endblock %}
