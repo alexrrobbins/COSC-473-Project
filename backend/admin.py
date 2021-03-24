@@ -14,3 +14,6 @@ class Admin(User):
 
     def promote_to_admin(self,email):
         return self.our_db.promote_to_admin(email)
+
+    def list_users(self):
+        return self.our_db.list_users()
