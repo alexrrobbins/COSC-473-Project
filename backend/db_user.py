@@ -98,3 +98,10 @@ class db():
             return True
         else:
             return False
+
+##############Admin view functionality#####################
+    def list_users(self):
+        sql = "SELECT * FROM LOGIN"
+        user_cursor = self.db_connection.cursor()
+        user_cursor.execute(sql)
+        return user_cursor.fetchall()
