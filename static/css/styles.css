@@ -78,8 +78,9 @@ body {
 }
 #owner-buttons {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 20;
+	right: 20;
+	padding-bottom: 40px;
 }
 .center {
 	margin: 0;
