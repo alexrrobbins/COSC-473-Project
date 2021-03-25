@@ -1,8 +1,31 @@
 {% extends "base.html" %}
 {% block body %}
 <div id="splashWrapper" class="center">
-  <button type="button" id="create_schedule_button" class="btn btn-outline-secondary" onclick="create_new_schedule()">Create New Schedule</button>
-    <button type="button" id="logout-button" class="btn btn-outline-secondary" onclick="display_passcode_page()">View Created Schedules</button>
-  <button type="button" id="logout-button" class="btn btn-outline-secondary" onclick="user_logout()">Logout</button>
+<html>
+<head>
+ <title></title>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+        <th>Data 1</th>
+        <th>Data 2</th>
+        <th>Data 3</th>
+    </tr>
+    </thead>    
+    <tbody>
+     {% for row in data %}    
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
 </div>
 {% endblock %}
