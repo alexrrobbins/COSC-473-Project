@@ -13,4 +13,34 @@
     <button type="button" name="promote_user_button" class="btn btn-outline-secondary" onclick="admin_change_user_password()">Change User Password</button>
 	<button type="button" id="logout-button" class="btn btn-outline-secondary" onclick="user_logout()">Logout</button>
 </div>
+
+<div id="splashWrapper" class="center">
+<html>
+<head>
+ <title></title>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+        <th>Schedule ID</th>
+        <th>Email</th>
+        <th>Schedule Password</th>
+    </tr>
+    </thead>    
+    <tbody>
+     {% for row in data %}    
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
+</div>
+
 {% endblock %}
