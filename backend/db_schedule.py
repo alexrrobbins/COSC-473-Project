@@ -29,6 +29,13 @@ class db():
         else:
             return False
 
+    def retrieve_all_schedules(self,email):
+        sql = "SELECT * FROM schedule WHERE email = %s"
+        values = (email,)
+        user_cursor = self.db_connection.cursor()
+        user_cursor.execute(sql,values)
+        return user_cursor.fetchall()
+
     def schedule_helper(self,sql,values):
         schedule_cursor = self.db_connection.cursor()
         schedule_cursor.execute(sql,values)

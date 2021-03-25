@@ -47,7 +47,9 @@ def login():
 # Render schedule actions page when Schedule Actions is clicked
 @app.route('/schedule-actions')
 def scheduleactions():
-    return render_template('schedule-actions.html')
+    dummy_schedule = Schedule(session['email'])
+    data = dummy_schedule.retrieve_all_schedules()
+    return render_template('schedule-actions.html', data=data)
 
 # Render schedule page
 # Note: We need a different view for the guest without the buttons
