@@ -45,7 +45,7 @@ body {
 	padding-bottom: 50px;
 	color: white;
 }
-#user-signup, #user-login, #user-schedule, #user-passcode{
+#user-signup, #user-login, #user-schedule, #user-passcode #user-view{
 	height: 1in;
 	width: 40%;
 	margin: 10px;
@@ -130,6 +130,14 @@ p {
 	color: white;
 }
 td {
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+	color: white
+}
+
+th {
     width: 150px;
     text-align: center;
     border: 1px solid black;
