@@ -6,7 +6,6 @@ class Event():
         self.schedule_id = schedule_id
         self.date = date
         self.title = title
-        #self.time = time
         self.our_db = db()
 
     def get_title(self):
