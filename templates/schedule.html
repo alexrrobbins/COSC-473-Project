@@ -22,7 +22,8 @@
         var events = [ ];
         {% for row in data %}
             var title = "{{row[0]}}";
-            var date = new Date(Date.parse("{{row[1]}}"));
+            var tempDate = new Date(Date.parse("{{row[1]}}"));
+            var date = new Date(tempDate.getFullYear, tempDate.getMonth, tempDate.getDay);
             var event_to_add = {'Date': date, 'Title': title};
             events.push(event_to_add);
         {% endfor %}
