@@ -29,7 +29,7 @@
         var settings = {};
 
         for (i = 0; i < events.length; i++)
-            document.writeln((i+1) + ": " + events[i].Title);
+            document.writeln((i+1) + ": " + events[i].Title + " " + events[i].Date);
 
         var element = document.getElementById('caleandar');
         caleandar(element, events, settings);
