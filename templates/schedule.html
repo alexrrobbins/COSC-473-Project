@@ -23,6 +23,12 @@
             {'Date': new Date(2021, 2, 18), 'Title': 'Order TP on Amazon', 'Link': 'https://amazon.com'},
             {'Date': new Date(2021, 2, 27), 'Title': '5 year anniversary', 'Link': 'https://www.google.com.au/#q=anniversary+gifts'},
         ];
+        {% for row in data %}
+                   var title = {{row[0]}};
+                   var date = {{row[1]}};
+                   var event_to_add = {'Date': date, 'Title': title};
+                   events.push(event_to_add)
+         {% endfor %}
         var settings = {};
 
         var element = document.getElementById('caleandar');
