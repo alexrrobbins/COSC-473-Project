@@ -177,8 +177,8 @@ function retrieve_schedule() {
 
 function add_event() {
   var event_date = $('#eventDate').val();
-  var event_title = $('#eventTitle').val();
-  var event_time = $('#eventTime').val();
+  var event_title = $('#eventName').val();
+  //var event_time = $('#eventTime').val();
   var event_info = {Date: event_date, Title: event_title};
   $.ajax({
     type: 'POST',
