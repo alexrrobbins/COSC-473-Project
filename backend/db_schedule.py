@@ -50,3 +50,10 @@ class db():
         sql = "INSERT INTO event (Title, Date, schedule_id) VALUES (%s, %s, %s)"
         values = (event.title, event.date, event.schedule_id)
         return self.schedule_helper(sql,values)
+
+    def retrieve_all_events(self,id):
+        sql = "SELECT * FROM event WHERE schedule_id = %s"
+        values = (id,)
+        event_cursor = self.db_connection.cursor()
+        event_cursor.execute(sql,values)
+        return event_cursor.fetchall()

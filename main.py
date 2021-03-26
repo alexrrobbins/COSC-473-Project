@@ -59,12 +59,14 @@ def schedule():
     schedule_id = str(session['schedule_id'])
     passcode = session['passcode']
     owner = session['email']
+    schdl = Schedule(owner,schedule_id)
+    data = schdl.retrieve_all_events()
     if 'username' in session:
         return render_template('schedule_buttons.html',schedule_id=schedule_id,
-            passcode=passcode, owner=owner)
+            passcode=passcode, owner=owner, data=data)
     else:
         return render_template('schedule.html',schedule_id=schedule_id,
-            passcode=passcode, owner=owner)
+            passcode=passcode, owner=owner, data=data)
 
 @app.route('/schedule-id-passcode')
 def schedule_id_passcode():

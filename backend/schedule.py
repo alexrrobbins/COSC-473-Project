@@ -42,3 +42,6 @@ class Schedule():
 
     def retrieve_all_schedules(self):
         return self.our_db.retrieve_all_schedules(self.email)
+
+    def retrieve_all_events(self):
+        return self.our_db.retrieve_all_events(self,self.id)

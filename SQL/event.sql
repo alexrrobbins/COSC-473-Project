@@ -31,7 +31,7 @@ CREATE TABLE `event` (
   `Title` varchar(255) NOT NULL,
   `Date` varchar(255) NOT NULL,
   `schedule_id` text NOT NULL,
-  `id` int(255) NOT NULL
+  `id` int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
