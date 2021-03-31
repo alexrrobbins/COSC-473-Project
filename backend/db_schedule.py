@@ -57,3 +57,8 @@ class db():
         event_cursor = self.db_connection.cursor()
         event_cursor.execute(sql,values)
         return event_cursor.fetchall()
+
+    def delete_event_from_db(self):
+        sql = "DELETE FROM event WHERE Title = %s AND Date = %s AND schedule_id = %s"
+        values = (event.title, event.date, event.schedule_id)
+        return self.schedule_helper(sql,values)

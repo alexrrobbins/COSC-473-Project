@@ -16,3 +16,11 @@ class Event():
 
     def add_to_db(self):
         return self.our_db.add_event_to_db(self)
+
+    def delete_from_db(self):
+        return self.delete_event_from_db(self)
+
+    def edit_event_title(self,new_title):
+        self.delete_event_from_db(self)
+        self.title = new_title
+        return self.add_event_to_db(self)
