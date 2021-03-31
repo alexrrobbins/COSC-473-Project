@@ -209,6 +209,7 @@ def retrieve_schedule():
     schedule_json = request.get_json()
     schedule_id = schedule_json['schedule_id']
     passcode = schedule_json['passcode']
+    session['passcode'] = passcode
     schedule_to_get = Schedule(email='null',schedule_id=schedule_id,passcode=passcode)
     if schedule_to_get.retrieve_schedule():
         session['email'] = schedule_to_get.get_owner()
