@@ -19,18 +19,6 @@ function change_password_page() {
   window.location = "/change-password";
 }
 
-//////Alert functions - need to be fixed and added later//////////
-function check_for_bad_credentials() {
-  if (document.referrer !== '') {
-    alert("Username or password incorrect, please try again");
-  }
-}
-function check_for_bad_registration() {
-  if (document.referrer !== '') {
-    alert("Email or username is already in use, please try again");
-  }
-}
-
 //////Logical functioms - user functionality//////
 
 function get_sign_up_info() {
