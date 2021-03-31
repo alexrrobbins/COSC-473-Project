@@ -7,6 +7,7 @@ from backend.admin import Admin
 from backend.schedule import Schedule
 from backend.event import Event
 from backend.email_password_reset import EmailPwdReset
+from backend.email_schedule_invite import EmailInvite
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes()
 
@@ -212,7 +213,6 @@ def retrieve_schedule():
     if schedule_to_get.retrieve_schedule():
         session['email'] = schedule_to_get.get_owner()
         session['schedule_id'] = schedule_to_get.get_static_id()
-        session['passcode'] = "CENSORED"
     return '200 OK'
 
 # Adds an event to the db that is linked to the schedule throgh schedule_id
@@ -238,6 +238,15 @@ def email_change_password_request():
     e.send_pwd_reset_message()
     session['pwd_reset_pin'] = e.get_pin()
     session['tmp_email'] = email
+    return '200 OK'
+
+# Sends an invite email to someone to view a user's schedule
+@app.route('/email_schedule_invite',methods=['GET','POST'])
+def email_schedule_invite():
+    user_json = request.get_json()
+    email = user_json['email']
+    e = EmailInvite()
+    self.send_schedule_invite(session['username'],session['schedule_id'],session['passcode'])
     return '200 OK'
 
 if __name__ == '__main__':
