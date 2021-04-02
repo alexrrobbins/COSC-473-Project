@@ -184,7 +184,7 @@ function add_event() {
 }
 
 function email_guest_invite() {
-  var guest_email = $('#guest_email').val();
+  var guest_email = $('#guest-email').val();
   var guest_info = {guest_email: guest_email};
   $.ajax({
     type: 'POST',
