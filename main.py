@@ -247,7 +247,7 @@ def email_schedule_invite():
     user_json = request.get_json()
     guest_email = user_json['guest_email']
     e = EmailInvite(guest_email)
-    self.send_schedule_invite(session['username'],session['schedule_id'],session['passcode'])
+    e.send_schedule_invite(session['username'],session['schedule_id'],session['passcode'])
     return '200 OK'
 
 if __name__ == '__main__':
