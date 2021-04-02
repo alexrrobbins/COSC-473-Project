@@ -45,3 +45,11 @@ class Schedule():
 
     def retrieve_all_events(self):
         return self.our_db.retrieve_all_events(self.schedule_id)
+
+    # Search functions - returns matching events under schedule
+
+    def search_by_title(self,title):
+        return self.our_db.search_by_title(self.schedule_id,title)
+
+    def search_by_date(self,date):
+        return self.our_db.search_by_date(self.schedule_id,date)
