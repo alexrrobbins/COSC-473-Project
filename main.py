@@ -245,8 +245,8 @@ def email_change_password_request():
 @app.route('/email_schedule_invite',methods=['GET','POST'])
 def email_schedule_invite():
     user_json = request.get_json()
-    email = user_json['email']
-    e = EmailInvite()
+    guest_email = user_json['guest_email']
+    e = EmailInvite(guest_email)
     self.send_schedule_invite(session['username'],session['schedule_id'],session['passcode'])
     return '200 OK'
 

@@ -183,6 +183,24 @@ function add_event() {
   });
 }
 
+function email_guest_invite() {
+  var guest_email = $('#guest_email').val();
+  var guest_info = {guest_email: guest_email};
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(guest_info),
+    url: "/email_schedule_invite",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {
