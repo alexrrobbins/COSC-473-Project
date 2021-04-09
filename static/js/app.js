@@ -213,7 +213,7 @@ function search() {
   $.ajax({
     type: 'POST',
     contentType: 'application/json',
-    data: JSON.stringify(guest_info),
+    data: JSON.stringify(search_info),
     url: "/search",
     success: function(e) {
       console.log(e);
