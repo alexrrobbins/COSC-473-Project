@@ -232,7 +232,7 @@ def add_event():
 
 @app.route('/search',methods=['GET','POST'])
 def search():
-    search_json = event.get_json()
+    search_json = request.get_json()
     s = Schedule(email="null",schedule_id=session['schedule_id'])
     if 'Title' in search_json:
         session['search_data'] = s.search_by_title(search_json['Title'])
