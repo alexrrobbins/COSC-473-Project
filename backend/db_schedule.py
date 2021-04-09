@@ -66,15 +66,15 @@ class db():
 ##############Search methods###############
 # Need to be tested, the sql might be wrong
     def search_by_title(self,schedule_id,title):
-        sql = "SELECT (Title, Date) FROM event WHERE schedule_id = %s AND Title LIKE %%s%"
-        values = (schedule_id, title)
+        sql = "SELECT (Title, Date) FROM event WHERE schedule_id = %s AND Title LIKE %s"
+        values = (schedule_id, '%'+title+'%')
         event_cursor = self.db_connection.cursor()
         event_cursor.execute(sql,values)
         return event_cursor.fetchall()
 
     def search_by_date(self,schedule_id,date):
-        sql = "SELECT (Title, Date) FROM event WHERE schedule_id = %s AND Date LIKE %%s%"
-        values = (schedule_id, date)
+        sql = "SELECT (Title, Date) FROM event WHERE schedule_id = %s AND Date LIKE %s"
+        values = (schedule_id, '%'+date+'%')
         event_cursor = self.db_connection.cursor()
         event_cursor.execute(sql,values)
         return event_cursor.fetchall()
