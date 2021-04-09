@@ -83,6 +83,7 @@ body {
 }
 .ownerButton {
 	float: right;
+	padding: 10px;
 }
 
 #calandar-buttons {
