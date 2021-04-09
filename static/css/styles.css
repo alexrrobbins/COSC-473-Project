@@ -83,8 +83,6 @@ body {
 
 #calandar-buttons {
 	position: absolute;
-	top: 0;
-	right: 0;
 }
 
 .center {
@@ -152,11 +150,9 @@ th {
 }
 
 email_guest_invite {
-	position:relative; 
-	left:80px; 
+	position:absolute; 
 }
 
 guest-email {
-	position:relative; 
-	left:80px; 
+	position:absolute; 
 }	
