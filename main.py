@@ -61,6 +61,8 @@ def schedule():
     owner = session['email']
     schdl = Schedule(owner,schedule_id)
     data = schdl.retrieve_all_events()
+    if 'search_data' in session:
+        data = session['search_data']
     if 'username' in session:
         return render_template('schedule_buttons.html',schedule_id=schedule_id,
             passcode=passcode, owner=owner, data=data)
@@ -227,6 +229,17 @@ def add_event():
     event = Event(schedule_id,event_date,event_title)
     event.add_to_db()
     return '200 OK'
+
+@app.route('/search',methods=['GET','POST'])
+def search():
+    search_json = request.get_json()
+    s = Schedule(email="null",schedule_id=session['schedule_id'])
+    if 'Title' in search_json:
+        session['search_data'] = s.search_by_title(search_json['Title'])
+    else:
+        session['search_data'] = s.search_by_date(search_json['Date'])
+    return '200 OK'
+
 
 #########Logical paths (Model) - Email functionality##############
 

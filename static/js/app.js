@@ -201,6 +201,30 @@ function email_guest_invite() {
   });
 }
 
+function search() {
+  var search_title = $('#search-title').val();
+  var search_date = $('#search-date').val();
+  if (search_title != null) {
+    var search_info = {Title:search_title};
+  }
+  else {
+    search_info = {Date:search_date};
+  }
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(search_info),
+    url: "/search",
+    success: function(e) {
+      console.log(e);
+      window.location = "/schedule";
+    },
+    error: function(error) {
+              console.log(error);
+          }
+  });
+}
+
 ////////Helper functions///////
 //Hash function borrowed from https://www.geeksforgeeks.org/how-to-create-hash-from-string-in-javascript/
 function stringToHash(string) {
