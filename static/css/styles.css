@@ -80,6 +80,13 @@ body {
 	top: 0;
 	right: 0;
 }
+
+#calandar-buttons {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
 .center {
 	margin: 0;
   	position: absolute;
