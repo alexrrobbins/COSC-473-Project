@@ -79,6 +79,10 @@ body {
 	position: absolute;
 	top: 0;
 	right: 0;
+	width: 75%;
+}
+#owner-buttons form {
+	display: block;
 }
 
 #calandar-buttons {
