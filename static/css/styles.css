@@ -79,6 +79,10 @@ body {
 	position: absolute;
 	top: 0;
 	right: 0;
+	width: 75%;
+}
+.ownerButton {
+	display: block;
 }
 
 #calandar-buttons {
