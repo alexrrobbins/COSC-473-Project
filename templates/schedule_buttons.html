@@ -2,12 +2,12 @@
 {% block buttons %}
 {{ super() }}
 
-<form>
+<form class="ownerButton">
   <button type="button" id="delete_schedule_button" class="btn btn-outline-secondary" onclick="delete_schedule()">Delete Schedule</button>
   <button type="button" id="logout-button" class="btn btn-outline-secondary" onclick="user_logout()">Logout</button>
 </form>
 
-<form> 
+<form class="ownerButton"> 
 <label>
   Invite a Guest:
   <input type="text" id="guest-email" class="form-control" placeholder="Guest Email">
@@ -15,7 +15,7 @@
 </label>
 </form>
 
-<form>
+<form class="ownerButton">
 <label>
   Create a New Event:
   <input type="text" id="eventName" class="form-control" placeholder="Event Name" required>
