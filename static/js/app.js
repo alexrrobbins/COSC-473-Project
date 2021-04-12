@@ -136,7 +136,7 @@ function delete_schedule() {
     url: "/delete_schedule",
     success: function(e) {
       console.log(e);
-      window.location = "/schedule-actions";
+      window.location = "/welcome";
     },
     error: function(error) {
               console.log(error);
