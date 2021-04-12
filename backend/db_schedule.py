@@ -75,8 +75,7 @@ class db():
 
     def search_by_date(self,schedule_id,date):
         sql = "SELECT * FROM event WHERE schedule_id = %s AND Date = %s"
-        date1 = '%' + date + '%'
-        values = (schedule_id, date1)
+        values = (schedule_id, date)
         event_cursor = self.db_connection.cursor()
         event_cursor.execute(sql,values)
         return event_cursor.fetchall()
