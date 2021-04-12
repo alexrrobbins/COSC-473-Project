@@ -63,6 +63,7 @@ def schedule():
     data = schdl.retrieve_all_events()
     if 'search_data' in session:
         data2 = session['search_data']
+        session.pop('search_data')
         if 'username' in session:
             return render_template('schedule_buttons.html',schedule_id=schedule_id,
                 passcode=passcode, owner=owner, data=data, data2=data2)
