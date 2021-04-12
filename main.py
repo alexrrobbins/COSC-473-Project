@@ -63,12 +63,18 @@ def schedule():
     data = schdl.retrieve_all_events()
     if 'search_data' in session:
         data2 = session['search_data']
+        if 'username' in session:
+            return render_template('schedule_buttons.html',schedule_id=schedule_id,
+                passcode=passcode, owner=owner, data=data, data2=data2)
+        else:
+            return render_template('schedule.html',schedule_id=schedule_id,
+                passcode=passcode, owner=owner, data=data, data2=data2)
     if 'username' in session:
         return render_template('schedule_buttons.html',schedule_id=schedule_id,
-            passcode=passcode, owner=owner, data=data, data2=data2)
+            passcode=passcode, owner=owner, data=data)
     else:
         return render_template('schedule.html',schedule_id=schedule_id,
-            passcode=passcode, owner=owner, data=data, data2=data2)
+            passcode=passcode, owner=owner, data=data)
 
 # Guest enters schedule ID and passcode on this page
 @app.route('/schedule-id-passcode')
