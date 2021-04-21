@@ -2,7 +2,7 @@ from flask import Flask
 import flask_unittest
 import flask.globals
 
-class TestUser(flast_unittest.ClientTestCase):
+class TestUser(flask_unittest.ClientTestCase):
     def creare_app(self):
         return Flask(__name__)
 
