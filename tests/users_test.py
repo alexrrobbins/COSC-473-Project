@@ -1,8 +1,10 @@
+from flask import Flask
 import flask_unittest
 import flask.globals
 
 class TestUser(flast_unittest.ClientTestCase):
-    app = Flask(__name__)
+    def creare_app(self):
+        return Flask(__name__)
 
     def setUp(self,client):
         pass
@@ -17,7 +19,10 @@ class TestUser(flast_unittest.ClientTestCase):
         pass
 
     def testSuccessfulLogin(self,client):
-        pass
+        email = "testsheep@gmail.com"
+        hashed_password = '1729983526'
+        response = client.post('/login', {email: email, password: hashed_password})
+        self.assertLocationHeader(response,'/welcome')
 
     def testInvalidEmailValidPassword(self,client):
         pass
