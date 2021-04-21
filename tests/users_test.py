@@ -3,7 +3,7 @@ import flask_unittest
 import flask.globals
 
 class TestUser(flask_unittest.ClientTestCase):
-    def creare_app(self):
+    def create_app(self):
         return Flask(__name__)
 
     def setUp(self,client):
