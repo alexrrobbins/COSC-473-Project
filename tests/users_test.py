@@ -2,26 +2,27 @@ from flask import Flask
 import flask_unittest
 import flask.globals
 
-class TestUser(flask_unittest.ClientTestCase):
+class TestUser(flask_unittest.AppTestCase):
+
     def create_app(self):
         return Flask(__name__)
 
-    def setUp(self,client):
+    def setUp(self,app):
         pass
 
-    def tearDown(self,client):
+    def tearDown(self,app):
         pass
 
-    def testSuccessfulRegister(self,client):
+    def testSuccessfulRegister(self,app):
         pass
 
-    def testUnsuccessfulRegister(self,client):
+    def testUnsuccessfulRegister(self,app):
         pass
 
-    def testSuccessfulLogin(self,client):
-        email = "testsheep@gmail.com"
-        hashed_password = '1729983526'
-        response = client.post('/login', {email: email, password: hashed_password})
+    def testSuccessfulLogin(self):
+        client = self.create_app().test_client()
+        test_data = {'email': "testsheep@gmail.com", 'password': "1729983526"}
+        response = client.post('/login_verify', data = test_data, follow_redirects=True)
         self.assertLocationHeader(response,'/welcome')
 
     def testInvalidEmailValidPassword(self,client):
@@ -32,3 +33,8 @@ class TestUser(flask_unittest.ClientTestCase):
 
     def testInvalidEmailInvalidPassword(self,client):
         pass
+
+if __name__ == '__main__':
+    t = TestUser()
+    t.setUp(t.create_app())
+    t.testSuccessfulLogin()
