@@ -7,10 +7,10 @@ from backend.admin import Admin
 import unittest2 as unittest
 
 class Users_Test(unittest.TestCase):
-    def testSuccessfulRegister(self,app):
+    def testSuccessfulRegister(self):
         pass
 
-    def testUnsuccessfulRegister(self,app):
+    def testUnsuccessfulRegister(self):
         pass
 
     def testSuccessfulLogin(self):
@@ -18,13 +18,13 @@ class Users_Test(unittest.TestCase):
         result = test_user.verify_credentials()
         self.assertEqual(result, True)
 
-    def testInvalidEmailValidPassword(self,client):
+    def testInvalidEmailValidPassword(self):
         pass
 
-    def testValidEmailInvalidPassword(self,client):
+    def testValidEmailInvalidPassword(self):
         pass
 
-    def testInvalidEmailInvalidPassword(self,client):
+    def testInvalidEmailInvalidPassword(self):
         pass
 
 if __name__ == '__main__':
