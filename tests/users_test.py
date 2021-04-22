@@ -1,18 +1,12 @@
-from flask import Flask
-import flask_unittest
-import flask.globals
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,parentdir)
+from backend.user import User
+from backend.admin import Admin
+import unittest
 
-class TestUser(flask_unittest.AppTestCase):
-
-    def create_app(self):
-        return Flask(__name__)
-
-    def setUp(self,app):
-        pass
-
-    def tearDown(self,app):
-        pass
-
+class Users_Test(unittest.TestCase):
     def testSuccessfulRegister(self,app):
         pass
 
@@ -20,10 +14,9 @@ class TestUser(flask_unittest.AppTestCase):
         pass
 
     def testSuccessfulLogin(self):
-        client = self.create_app().test_client()
-        test_data = {'email': "testsheep@gmail.com", 'password': "1729983526"}
-        response = client.post('/login_verify', data = test_data, follow_redirects=True)
-        self.assertLocationHeader(response,'/welcome')
+        test_user = User('testsheep@gmail.com','iamsheep')
+        result = test_user.verify_credentials()
+        self.assertEqual(result, True)
 
     def testInvalidEmailValidPassword(self,client):
         pass
@@ -35,6 +28,4 @@ class TestUser(flask_unittest.AppTestCase):
         pass
 
 if __name__ == '__main__':
-    t = TestUser()
-    t.setUp(t.create_app())
-    t.testSuccessfulLogin()
+    unittest.main()
