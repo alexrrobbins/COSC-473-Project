@@ -19,13 +19,19 @@ class Users_Test(unittest.TestCase):
         self.assertEqual(result, True)
 
     def testInvalidEmailValidPassword(self):
-        pass
+        test_user = User('testsheep3@gmail.com','1729983526')
+        result = test_user.verify_credentials()
+        self.assertEqual(result,False)
 
     def testValidEmailInvalidPassword(self):
-        pass
+        test_user = User('testsheep@gmail.com','567340989')
+        result = test_user.verify_credentials()
+        self.assertEqual(result,False)
 
     def testInvalidEmailInvalidPassword(self):
-        pass
+        test_user = User('testsheep1@gmail.com','567340989')
+        result = test_user.verify_credentials()
+        self.assertEqual(result,False)
 
 if __name__ == '__main__':
     unittest.main()
