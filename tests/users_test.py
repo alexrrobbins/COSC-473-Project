@@ -8,10 +8,14 @@ import unittest2 as unittest
 
 class Users_Test(unittest.TestCase):
     def testSuccessfulRegister(self):
-        pass
+        test_user = User('testsheep2@gmail.com','2089881804','sheep2')
+        result = test_user.add_to_db()
+        self.assertEqual(result, True)
 
     def testUnsuccessfulRegister(self):
-        pass
+        test_user = User('testsheep@gmail.com','1729983526','sheep')
+        result = test_user.add_to_db()
+        self.assertEqual(result,False)
 
     def testSuccessfulLogin(self):
         test_user = User('testsheep@gmail.com','1729983526')
