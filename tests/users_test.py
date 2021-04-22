@@ -4,7 +4,7 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0,parentdir)
 from backend.user import User
 from backend.admin import Admin
-import unittest
+import unittest2 as unittest
 
 class Users_Test(unittest.TestCase):
     def testSuccessfulRegister(self,app):
