@@ -14,7 +14,7 @@ class Users_Test(unittest.TestCase):
         pass
 
     def testSuccessfulLogin(self):
-        test_user = User('testsheep@gmail.com','iamsheep')
+        test_user = User('testsheep@gmail.com','1729983526')
         result = test_user.verify_credentials()
         self.assertEqual(result, True)
 
