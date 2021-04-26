@@ -19,7 +19,7 @@ header = {
            'cache-control': "no-cache",
         }
 response = requests.request("POST", url, headers=headers)
-        if response.status_code == 200:
-            print username + ":" + pwd
+    if response.status_code == 200:
+        print username + ":" + pwd
 createPassList(worddict)
 tryBrute()
